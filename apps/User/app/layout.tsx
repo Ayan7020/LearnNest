@@ -1,5 +1,6 @@
-import "./globals.css";
+import "@repo/ui/globals.css";
 import type { Metadata } from "next"; 
+import { Providers } from "./provider";
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -13,7 +14,11 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+          <Providers>
+             {children}
+          </Providers>
+        </body>
     </html>
   );
 }
