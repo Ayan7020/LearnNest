@@ -1,19 +1,27 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
+import * as React from "react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
-import { Button } from "../shad/ui/button"
+import { Button } from "../shad/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../shad/ui/dropdown-menu"
+} from "../shad/ui/dropdown-menu";
+
+import { useEffect } from "react";
 
 export function ModeToggle() {
-  const { setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => {
+    if (!resolvedTheme) {
+      setTheme("dark");
+    }
+  }, [resolvedTheme, setTheme]);
 
   return (
     <DropdownMenu>
@@ -36,5 +44,5 @@ export function ModeToggle() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
