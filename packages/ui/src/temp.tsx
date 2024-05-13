@@ -5,9 +5,9 @@ import { BackgroundGradient } from "./Acertinty/background-gradient";
 export function BackgroundGradientDemo() {
   return (
     <div>
-      <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-white dark:bg-zinc-900">
+      <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-white  dark:bg-zinc-900">
         
-        <p className="text-base sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
+        <p className="font-bold font-poppins text-base sm:text-xl text-black mt-4 mb-2  dark:text-neutral-200">
           Air Jordan 4 Retro Reimagined
         </p>
 
