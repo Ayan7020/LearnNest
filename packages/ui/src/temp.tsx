@@ -1,28 +1,41 @@
-"use client";
-import React from "react";
-import { BackgroundGradient } from "./Acertinty/background-gradient";  
+"use client"
 
-export function BackgroundGradientDemo() {
-  return (
-    <div>
-      <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-white  dark:bg-zinc-900">
-        
-        <p className="font-bold font-poppins text-base sm:text-xl text-black mt-4 mb-2  dark:text-neutral-200">
-          Air Jordan 4 Retro Reimagined
-        </p>
+import { useState } from "react";
+import { Button } from "./shad/ui/button"; 
+import { ModeToggle } from "./Toggle/ToggleTheme";
+import { AlignJustify, X } from "lucide-react"; 
 
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          The Air Jordan 4 Retro Reimagined Bred will release on Saturday,
-          February 17, 2024. Your best opportunity to get these right now is by
-          entering raffles and waiting for the official releases.
-        </p>
-        <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800">
-          <span>Buy now </span>
-          <span className="bg-zinc-700 rounded-full text-[0.6rem] px-2 py-0 text-white">
-            $100
-          </span>
-        </button>
-      </BackgroundGradient>
-    </div>
+const Navbar = () => { 
+  const [Toggle,setToggle] = useState(true)
+  return ( 
+      <div className="w-screen flex justify-around font-poppins mt-4 items-center shadow-lg shadow-indigo-500/50 pb-3 ">
+        <div className="text-[30px] font-semibold cursor-pointer">
+          <h1>LearnNest</h1>
+        </div>
+        <div>
+          <ul className="hidden sm:flex gap-5 sm:text-[15px] md:text-[20px] text-[#7C7575] cursor-pointer ">
+            <li className="text-black dark:text-white">Home</li>
+            <li className="hover:text-black dark:hover:text-white">Catalog</li>
+            <li className="hover:text-black dark:hover:text-white">About us</li>
+            <li className="hover:text-black dark:hover:text-white">Contact us</li>
+          </ul> 
+        </div>
+        <div className="hidden sm:flex gap-2 items-center">
+          <Button className="bg-white text-black shadow-none border-none rounded-[15px] p-5 pt-3 h-[43px] hover:bg-slate-100  text-[20px] bg-transparent dark:text-white dark:hover:bg-slate-800 focus:ring-2 ">
+            Login
+          </Button>
+          <Button className="bg-[#9C49CF] text-[20px] shadow-none border-none rounded-[15px] p-4 pt-3  h-[43px] hover:bg-[#671997] dark:text-white focus:ring-2 ">
+            Signup
+          </Button> 
+          <ModeToggle />
+        </div>
+        <div className="block sm:hidden">
+          <Button onClick={() => setToggle(!Toggle)} className="bg-transparent focus:ring-2 focus:bg-transparent">
+            {Toggle? <X color="white"/>: <AlignJustify color="white"/> }
+          </Button>
+        </div>
+      </div>  
   );
-}
+};
+
+export default Navbar;

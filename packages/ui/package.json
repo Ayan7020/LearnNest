@@ -15,7 +15,8 @@
     "./ToggleTheme": "./src/Toggle/ToggleTheme.tsx",
     "./GradCard": "./src/temp.tsx",
     "./Navbar": "./src/Navbar.tsx",
-    "./Lamp": "./src/Acertinty/lamp.tsx"
+    "./Lamp": "./src/Acertinty/lamp.tsx",
+    "./ResponsiveSidebar": "./src/ResponsiveSidebar.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

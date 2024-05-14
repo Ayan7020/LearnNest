@@ -1,7 +1,7 @@
 import "@repo/ui/globals.css";
 import type { Metadata } from "next";
 import { Providers } from "./provider";
-import Navbar from "@repo/ui/Navbar";
+import Navbar from "@repo/ui/Navbar"; 
 
 export const metadata: Metadata = {
   title: "LearnNest",
@@ -17,8 +17,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="h-full">
         <Providers>
-          <Navbar />
-          {children}
+          <Navbar children={children} />
+          <div className="relative">   
+          </div>
         </Providers>
       </body>
     </html>
