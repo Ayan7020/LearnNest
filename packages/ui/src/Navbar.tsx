@@ -5,9 +5,11 @@ import { useState } from "react";
 import { AlignJustify, X } from "lucide-react";
 import { Button } from "./shad/ui/button";
 import Sidebar from "./Sidebar";
+import { useTheme } from "next-themes";
 import LinksDropdown from "./dropdown/LinksDropdown";
 
 import { NavbarLinks } from "../../data/Navbar-links";
+import { ModeToggle } from "./Toggle/ToggleTheme";
 
 const subLinks = [
   {
@@ -22,6 +24,8 @@ const subLinks = [
 
 const Navbar = ({ children }: { children: React.ReactNode }) => {
   const [toggle, setToggle] = useState(false);
+  const [action, setAction] = useState(false);
+  const { theme } = useTheme();
   const router = usePathname();
 
   const token = null;
@@ -31,7 +35,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
       <div className="flex h-20 items-center justify-center shadow-lg shadow-indigo-500/50">
         <div className="flex w-11/12 max-w-maxContent items-center justify-between">
           <Link href="/">
-            <h1 className="text-3xl font-semibold">LearnNest</h1>
+            <h1 className=" text-2xl lg:text-3xl font-semibold">LearnNest</h1>
           </Link>
           <nav>
             <ul className="hidden md:flex gap-x-6 text-lg text-[#7C7575]">
@@ -45,7 +49,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                         className={
                           router === link.path
                             ? "text-[#9C49CF]"
-                            : "text-white hover:text-[#9C49CF]"
+                            : "text-black dark:text-white hover:text-[#9C49CF]"
                         }
                       >
                         {link.title}
@@ -56,9 +60,9 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
               ))}
             </ul>
           </nav>
-          <div className="hidden md:flex gap-3">
+          <div className="hidden md:flex gap-3  items-center">
             {token === null && (
-              <Button className="bg-transparent h-12 text-white rounded-lg hover:bg-transparent focus:ring-2">
+              <Button className="bg-transparent h-12 text-black dark:text-white rounded-lg hover:bg-transparent  hover:ring-2 focus:ring-2 ">
                 Login
               </Button>
             )}
@@ -67,21 +71,23 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                 Signup
               </Button>
             )}
+          <ModeToggle/>
           </div>
-          <div className="block sm:hidden">
+          <div className="flex md:hidden items-center gap-2">
+          <ModeToggle/>
             <Button
-              onClick={() => setToggle(!toggle)}
-              className="h-12 bg-black text-white rounded-lg focus:bg-black"
+              onClick={() => {setToggle(!toggle); setAction(true)}}
+              className="h-12 bg-white dark:bg-black focus:bg-slate-400 text-white rounded-lg dark:focus:bg-black"
             >
-              {toggle ? <X color="white" /> : <AlignJustify color="white" />}
-            </Button>
+              {toggle ? <X color={theme=="dark"? "white":"black"} /> : <AlignJustify color={theme=="dark"? "white":"black"} />}
+            </Button> 
           </div>
         </div>
-      </div>
-      <div className="relative">
-        {toggle && <Sidebar onClick={() => {
+      </div> 
+      <div className="relative block md:hidden "> 
+        {action && <Sidebar onClick={() => {
           setToggle(!toggle)
-        }} />}
+        }} State={toggle} />} 
         {children}
       </div>
     </div>
