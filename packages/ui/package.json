@@ -16,7 +16,8 @@
     "./GradCard": "./src/temp.tsx",
     "./Navbar": "./src/Navbar.tsx",
     "./Lamp": "./src/Acertinty/lamp.tsx",
-    "./ResponsiveSidebar": "./src/ResponsiveSidebar.tsx"
+    "./TypeWritterEffect": "./src/Acertinty/typewriter-effect.tsx",
+    "./AnimatedButton": "./src/Button/AnimatedButton.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

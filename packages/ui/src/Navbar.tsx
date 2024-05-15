@@ -7,6 +7,7 @@ import { Button } from "./shad/ui/button";
 import Sidebar from "./Sidebar";
 import { useTheme } from "next-themes";
 import LinksDropdown from "./dropdown/LinksDropdown";
+import { motion } from "framer-motion";
 
 import { NavbarLinks } from "../../data/Navbar-links";
 import { ModeToggle } from "./Toggle/ToggleTheme";
@@ -25,15 +26,14 @@ const subLinks = [
 const Navbar = ({ children }: { children: React.ReactNode }) => {
   const [toggle, setToggle] = useState(false);
   const [action, setAction] = useState(false);
-  const { theme } = useTheme();
-  const [themes, setThemes] = useState(theme);
+  const { theme } = useTheme(); 
   const router = usePathname();
 
   const token = null;
 
   return (
     <div>
-      <div className="flex h-20 items-center justify-center shadow-lg shadow-indigo-500/50">
+      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.1, ease: "easeOut" }}  className="flex h-20 items-center justify-center shadow-lg shadow-indigo-500/50">
         <div className="flex w-11/12 max-w-maxContent items-center justify-between">
           <Link href="/">
             <h1 className=" text-2xl lg:text-3xl font-semibold">LearnNest</h1>
@@ -50,7 +50,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                         className={
                           router === link.path
                             ? "text-[#9C49CF]"
-                            : "text-black dark:text-white hover:text-[#9C49CF]"
+                            : "text-black dark:text-white hover:text-[#c567ff] dark:hover:text-[#c567ff]"
                         }
                       >
                         {link.title}
@@ -84,13 +84,13 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
             </Button> 
           </div>
         </div>
-      </div>  
+      </motion.div>  
       <div className="relative block md:hidden "> 
         {action && <Sidebar onClick={() => {
           setToggle(!toggle)
         }} State={toggle} />} 
-        {children}
-      </div>
+      </div> 
+        {children} 
     </div>
   );
 };
