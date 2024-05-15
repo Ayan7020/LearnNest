@@ -20,7 +20,7 @@ const AnimatedButton = ({ children, onClick, width, height, svg }: AnimatedButto
             onClick={onClick}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
         > 
             <Button className="flex flex-row items-center px-5 sm:px-10 h-[50px] gap-4 bg-[#9C49CF] text-white rounded-full font-bold transition-all duration-200 hover:scale-95 hover:bg-[#6d3292] w-fit hover:drop-shadow-none text-md sm:text-xl ring-4 ring-blue-500 dark:ring-blue-200">
                 {children}
@@ -28,7 +28,7 @@ const AnimatedButton = ({ children, onClick, width, height, svg }: AnimatedButto
                     <motion.div
                         initial={{ opacity: 0, x: -5 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.7, ease: "easeOut", delay: 0.7 }}
+                        transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }}
                     >
                         <ArrowRight />
                     </motion.div>
