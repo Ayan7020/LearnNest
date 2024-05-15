@@ -12,7 +12,7 @@ export default function Page(): JSX.Element {
           <AnimatedButton svg={true}>Become an Instructor</AnimatedButton>
         </Link>
         <motion.div 
-        initial={{ opacity: 0, x: 10 }}
+        initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="text-center text-4xl font-semibold mt-10 text-black dark:text-white">
@@ -23,9 +23,9 @@ export default function Page(): JSX.Element {
           </span>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className=" mt-4 w-[90%] text-center text-lg font-bold text-slate-500"
         >
           With our online coding courses, you can learn at your own pace, from
