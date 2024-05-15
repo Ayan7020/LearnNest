@@ -26,6 +26,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
   const [toggle, setToggle] = useState(false);
   const [action, setAction] = useState(false);
   const { theme } = useTheme();
+  const [themes, setThemes] = useState(theme);
   const router = usePathname();
 
   const token = null;
@@ -79,11 +80,11 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
               onClick={() => {setToggle(!toggle); setAction(true)}}
               className="h-12 bg-white dark:bg-black focus:bg-slate-400 text-white rounded-lg dark:focus:bg-black"
             >
-              {toggle ? <X color={theme=="dark"? "white":"black"} /> : <AlignJustify color={theme=="dark"? "white":"black"} />}
+              {toggle ? <X color="#9C49CF"/> : <AlignJustify color="#9C49CF"/>}
             </Button> 
           </div>
         </div>
-      </div> 
+      </div>  
       <div className="relative block md:hidden "> 
         {action && <Sidebar onClick={() => {
           setToggle(!toggle)
