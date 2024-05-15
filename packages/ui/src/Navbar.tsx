@@ -33,7 +33,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div>
-      <motion.div initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: "easeOut" }}  className="flex h-20 items-center justify-center shadow-lg shadow-indigo-500/50">
+      <motion.div initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.5, ease: "easeOut" }}  className="flex h-20 items-center justify-center shadow-lg shadow-indigo-500/50">
         <div className="flex w-11/12 max-w-maxContent items-center justify-between">
           <Link href="/">
             <h1 className=" text-2xl lg:text-3xl font-semibold">LearnNest</h1>
