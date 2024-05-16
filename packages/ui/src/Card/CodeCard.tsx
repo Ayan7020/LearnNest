@@ -67,7 +67,7 @@ const Card = ({position, heading, subheading, ctabtn1, ctabtn2, codeblock, backg
                 <p>10</p>
                 <p>11</p>
             </div>
-            <div className={`w-[90%] flex flex-col gap-2 font-bold  font-mono  ${codeColor} dark:${codeColor}  pr-1`} >
+            <div className={`w-[90%] flex flex-col gap-2 font-bold  font-mono  text-white dark:${codeColor}  pr-1`} >
                 <TypeAnimation
                  sequence={[codeblock,2000,""]} 
                  repeat={Infinity}
