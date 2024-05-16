@@ -23,7 +23,7 @@ const Dropdown = ({ Title, links }: LinksDropdownProps) => {
           <ChevronDown widths={30} height={30} color={theme=="dark"? "white":"black"}/>
         )}
       </div>
-      <div className="flex flex-col bg-slate-200 dark:bg-slate-900 w-[100%] items-center">
+      <div className="flex flex-col text-white bg-[#c567ff] dark:bg-richblue-500 w-[100%] items-center">
         {Dropdown && links.length ? (
           links.map((sublink, index) => (
             <Link
