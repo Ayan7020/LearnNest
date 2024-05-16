@@ -26,8 +26,8 @@ const Card = ({position, heading, subheading, ctabtn1, ctabtn2, codeblock, backg
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.0, ease: "easeInOut" }} 
         viewport={{ once: true}}
-        className={`flex ${position} my-20 justify-between flex-col  gap-10`}>
-        <div className="w-[100%] lg:w-[50%]  flex flex-col gap-8 text-black dark:text-white">
+        className={`flex ${position} my-20 justify-between flex-col  gap-10 p-4 rounded-lg shadow-xl shadow-richblack-50 dark:shadow-blue-700`}>
+        <div className="w-[100%] lg:w-[50%]  flex flex-col gap-8 text-black dark:text-white ">
             {heading}
             <div className="text-richblack-300 text-base font-bold w-[85%] -mt-3 ">
                 {subheading}

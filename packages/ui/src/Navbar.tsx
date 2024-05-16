@@ -78,9 +78,9 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
           <ModeToggle/>
             <Button
               onClick={() => {setToggle(!toggle); setAction(true)}}
-              className="h-12 bg-white dark:bg-black focus:bg-slate-400 text-white rounded-lg dark:focus:bg-black"
+              className=" bg-white  bg-transparent focus:bg-transparent hover:bg-transparent text-white rounded-lg "
             >
-              {toggle ? <X color="#9C49CF"/> : <AlignJustify color="#9C49CF"/>}
+              {toggle ? <X color="#9C49CF"/> : <AlignJustify color="#9C49CF" />}
             </Button> 
           </div>
         </div>
