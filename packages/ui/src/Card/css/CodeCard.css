@@ -1,0 +1,15 @@
+.code-border {
+    background: linear-gradient(111.93deg, rgba(255, 182, 193, 0.5) -1.4%, rgba(173, 216, 230, 0.5) 104.96%);
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right bottom, #ff9a9e, #fad0c4, #fad0c4, #fcb69f);  
+}
+
+.dark-code {
+    background: linear-gradient(111.93deg,rgba(218, 5, 5, 0.547) -1.4%,rgba(0, 63, 157, 0.38) 104.96%);
+    border: 2px solid;
+    border-radius: 15px;
+    border-image-slice: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-image-source: linear-gradient(to right bottom,#ffffff38,#ffffff00);
+} 
