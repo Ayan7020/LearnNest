@@ -5,6 +5,7 @@ import CTAButton from "@repo/ui/button";
 import CodeCard from "@repo/ui/card";
 import { motion } from "framer-motion";
 import Banner from "../assets/banner.mp4"
+import { trackDynamicDataAccessed } from "next/dist/server/app-render/dynamic-rendering";
 
 export default function Page(): JSX.Element {
   return (
@@ -56,6 +57,7 @@ export default function Page(): JSX.Element {
             <source src={Banner} type="video/mp4" className=""/>
           </video>
         </motion.div>
+        <div>
        <div>
         <CodeCard
           position={"lg:flex-row"}
@@ -110,6 +112,7 @@ export default function Page(): JSX.Element {
         />
       </div>
       </div>
+      </div>
     </div>
   );
-}
+} 
