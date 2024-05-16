@@ -25,7 +25,7 @@ const Card = ({position, heading, subheading, ctabtn1, ctabtn2, codeblock, backg
         initial={{opacity:0, y:100}}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.0, ease: "easeInOut" }} 
-        className={`flex ${position} my-20 justify-between flex-col gap-10`}>
+        className={`flex ${position} my-20 justify-between flex-col  gap-10`}>
         <div className="w-[100%] lg:w-[50%]  flex flex-col gap-8 text-black dark:text-white">
             {heading}
             <div className="text-richblack-300 text-base font-bold w-[85%] -mt-3 ">
@@ -45,12 +45,13 @@ const Card = ({position, heading, subheading, ctabtn1, ctabtn2, codeblock, backg
                 </CTAButton>
             </div>
         </div>
+        <div className="overflow-hidden">
         <motion.div
         initial={{opacity: 0, x:100}} 
         whileInView={{opacity:1, x:0}}
         transition={{ duration: 1.0, ease: "easeInOut" }}
-        className="h-fit  dark-code  flex flex-row py-3 text-[10px] sm:text-sm leading-[18px] sm:leading-6 relative w-[100%] lg:w-[470px] rounded-full">
-            <div className="absolute gradient-custom w-[373px] h-[257px] rounded-full blur-2xl opacity-20 -left-2 -top-2"></div>
+        className="h-fit  dark-code  flex flex-row py-3 text-[10px] sm:text-sm leading-[18px] sm:leading-6  w-[100%] lg:w-[470px] rounded-full">
+            <div className="absolute mgradient-custo w-[30%] h-[257px] rounded-full blur-2xl opacity-20 -left-2 -top-2"></div>
             <div className="text-center flex select-none flex-col w-[10%] text-richblack-400 font-inter font-bold full">
                 <p>1</p>
                 <p>2</p>
@@ -79,6 +80,7 @@ const Card = ({position, heading, subheading, ctabtn1, ctabtn2, codeblock, backg
                 />
             </div>
         </motion.div>
+    </div>
     </motion.div>
 } 
 

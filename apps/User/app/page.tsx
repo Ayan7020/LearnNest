@@ -9,7 +9,7 @@ import Banner from "../assets/banner.mp4"
 export default function Page(): JSX.Element {
   return (
     <div>
-      <div className="relative mx-auto flex flex-col items-center text-white justify-between  w-11/12 max-w-maxContent">
+      <div className="relative mx-auto flex flex-col items-center text-white justify-between  w-11/12 max-w-maxContent bg-green-500">
         <Link href={"/signup"} className="mt-10">
           <AnimatedButton svg={true}>Become an Instructor</AnimatedButton>
         </Link>
@@ -56,7 +56,7 @@ export default function Page(): JSX.Element {
             <source src={Banner} type="video/mp4" className=""/>
           </video>
         </motion.div>
-      <div>
+       <div>
         <CodeCard
           position={"lg:flex-row"}
           heading={
