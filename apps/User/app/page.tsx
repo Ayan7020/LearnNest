@@ -6,6 +6,7 @@ import CodeCard from "@repo/ui/card";
 import { motion } from "framer-motion";
 import Banner from "../assets/banner.mp4"
 import { trackDynamicDataAccessed } from "next/dist/server/app-render/dynamic-rendering";
+import Exploremore from "../components/Exploremore";
 
 export default function Page(): JSX.Element {
   return (
@@ -112,6 +113,7 @@ export default function Page(): JSX.Element {
         />
       </div>
       </div>
+      <Exploremore/>
       </div>
     </div>
   );
