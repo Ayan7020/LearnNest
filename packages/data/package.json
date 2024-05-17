@@ -1,0 +1,11 @@
+{
+  "name": "@repo/data",
+  "version": "0.0.0",
+  "dependencies": { 
+  },
+  "devDependencies": { 
+  },
+  "exports": {
+      "./HomepageExplorerData": "./HomepageExplorer.ts"
+  }
+}
