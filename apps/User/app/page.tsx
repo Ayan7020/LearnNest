@@ -4,10 +4,11 @@ import Link from "next/link";
 import CTAButton from "@repo/ui/button";
 import CodeCard from "@repo/ui/card";
 import { motion } from "framer-motion";
-import Banner from "../assets/banner.mp4"
-import { trackDynamicDataAccessed } from "next/dist/server/app-render/dynamic-rendering";
+import Banner from "../assets/banner.mp4" 
 import Exploremore from "../components/Exploremore";
-
+import { ArrowRight } from "lucide-react";
+import "../CSS/HomeBg.css"
+import Timelinesection from "../components/Timelinesection";
 export default function Page(): JSX.Element {
   return (
     <div>
@@ -113,7 +114,53 @@ export default function Page(): JSX.Element {
         />
       </div>
       </div>
-      <Exploremore/>
+        <Exploremore/>
+      </div>
+      <div className="bg-pure-greys-100  dark:bg-pure-greys-5 text-richblack-700">
+        <div className="homepage_bg  h-[310px]">
+          <div className="w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto">
+            <div className="hidden lg:block h-[180px]"></div>
+            <motion.div 
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.0, ease: "easeOut" }}
+            viewport={{once: true}}
+            className="mt-8 lg:mt-0 flex flex-row gap-7">
+              <CTAButton active={true} linkto="/signup">
+                  <div className="flex items-center gap-3">
+                     Explore Full Catalog
+                     <ArrowRight/>
+                  </div>
+              </CTAButton>
+              <CTAButton active={false} linkto="/signup">
+                  <div>
+                     Learn more  
+                  </div>
+              </CTAButton>
+            </motion.div>
+          </div>
+        </div>
+        <div className="mx-auto w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-7">
+            <div className="flex flex-col lg:flex-row justify-between gap-5 mb-10 -mt-20 lg:mt-[95px] ">
+              <div className='text-4xl font-semibold lg:w-[45%]'>
+                  Get the Skills you need for a
+              <span className="text-[#9C49CF] text-transparent bg-clip-text font-bold">
+                  {" "}Job that is in demand {" "}
+              </span>
+              </div>
+              <div className="flex flex-col gap-10 lg:w-[40%] items-start ">
+                <div className="text-[16px]">
+                The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
+                </div>
+                <CTAButton active={true} linkto={"/signup"}>
+                  <div>
+                    Learn more
+                  </div>
+                </CTAButton>
+              </div>
+            </div>
+            <Timelinesection/>
+        </div> 
       </div>
     </div>
   );
