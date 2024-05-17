@@ -23,7 +23,7 @@ const Exploremore = () => {
         setCourses(result[0]?.courses)
 
     }
-    return <motion.div initial={{opacity:0,y:100}} whileInView={{opacity:1,y:0}} transition={{ duration: 1.0, ease: "easeOut" }}> 
+    return <motion.div  viewport={{once: true}} initial={{opacity:0,y:100}} whileInView={{opacity:1,y:0}} transition={{ duration: 1.0, ease: "easeOut" }}> 
         <div className='text-4xl font-semibold text-center text-black dark:text-white'>
             Unlock the
             <span className="text-[#9C49CF] text-transparent bg-clip-text font-bold">
@@ -49,7 +49,7 @@ const Exploremore = () => {
             }
         </div>
         <div className='hidden lg:block lg:h-[200px]'></div>
-          <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{delay: 0.5}} className='lg:absolute gap-10 justify-center lg:gap-0  lg:justify-between flex  flex-wrap w-full lg:left-1 lg:-translate-y-[50%] text-black lg:mb-0 mb-9 lg:px-0 px-3'> 
+          <motion.div  className='lg:absolute gap-10 justify-center lg:gap-0  lg:justify-between flex  flex-wrap w-full lg:left-1 lg:-translate-y-[50%] text-black lg:mb-0 mb-9 lg:px-0 px-3'> 
                 {
                     Courses?.map((element,index) => {
                         return (
