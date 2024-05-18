@@ -1,18 +1,15 @@
-import express from "express";
-import "dotenv/config"
+import express, { Request, Response } from "express";
 
-const app = express()
-const PORT = process.env.PORT || 4001 
+const app = express();
+app.use(express.json());
 
+// get post routes
+app.get("/post", (req: Request, res:Response) => {
+  res.status(200).json({ message: "post routes" });
+});
 
-app.get("/",(req,res) => {
-    return res.json({
-        Name: "Ayan",
-        Success: true
-    })
-})
-
-
-app.listen(PORT,() => {
-    console.log(`App is running at ${PORT}`)
-})
+// root routes
+app.get("/", (req: Request, res:Response) => {
+  res.status(200).json({ message: "Hello World" });
+});
+export default app;
