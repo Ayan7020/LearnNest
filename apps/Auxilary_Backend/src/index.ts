@@ -5,7 +5,7 @@ const app = express();
 app.get("/", (req, res) => {  
     // console.log(HomePageExplore)
     return res.json({
-        Name: "AYAN", 
+        Name: "AYAN SHAIKh", 
         Success: true
     })
 })
