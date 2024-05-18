@@ -1,11 +1,9 @@
-import express from "express"; 
-import {HomePageExplore} from "@repo/data/HomepageExplorerData"
+import express from "express";  
 const app = express();
 
 app.get("/", (req, res) => {  
     return res.json({
-        Name: "AYAN",
-        Data: HomePageExplore,
+        Name: "AYAN", 
         Success: true
     })
 })
