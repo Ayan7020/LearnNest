@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npx esbuild ./src/index.ts --bundle --platform=node --outfile=dist/index.js",
     "start": "node dist/index.js",
-    "dev": "ts-node-dev src/index.ts"
+    "dev": "npm run build && npm run start"
   },
   "dependencies": {
     "@repo/ui": "*",
@@ -16,7 +16,6 @@
   },
   "devDependencies": { 
     "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.4.5"
+    "ts-node-dev": "^2.0.0" 
   }
 }
