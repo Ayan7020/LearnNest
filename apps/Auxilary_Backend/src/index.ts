@@ -1,11 +1,11 @@
 import express from "express"; 
-import {NavbarLinks} from "@repo/data/Navbar-links"
+import {HomePageExplore} from "@repo/data/HomepageExplorerData"
 const app = express();
 
 app.get("/", (req, res) => {  
     return res.json({
         Name: "AYAN",
-        Data: NavbarLinks,
+        Data: HomePageExplore,
         Success: true
     })
 })
