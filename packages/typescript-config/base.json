@@ -9,7 +9,7 @@
     "isolatedModules": true,
     "lib": ["es2022", "DOM", "DOM.Iterable"],
     "module": "NodeNext",
-    "moduleDetection": "force",
+    "moduleDetection": "force", 
     "moduleResolution": "NodeNext",
     "noUncheckedIndexedAccess": true,
     "resolveJsonModule": true,
@@ -18,3 +18,4 @@
     "target": "ES2022"
   }
 }
+ 
