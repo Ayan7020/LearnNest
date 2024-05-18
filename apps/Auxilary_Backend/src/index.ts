@@ -1,9 +1,11 @@
 import express from "express"; 
+import {NavbarLinks} from "@repo/data/Navbar-links"
 const app = express();
 
-app.get("/", (req, res) => { 
+app.get("/", (req, res) => {  
     return res.json({
         Name: "AYAN",
+        Data: NavbarLinks,
         Success: true
     })
 })
