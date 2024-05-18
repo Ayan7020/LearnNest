@@ -3,6 +3,7 @@ import { HomePageExplore } from "@repo/data/HomepageExplorerData";
 const app = express();
 
 app.get("/", (req, res) => {  
+    console.log(HomePageExplore)
     return res.json({
         Name: "AYAN", 
         Success: true
