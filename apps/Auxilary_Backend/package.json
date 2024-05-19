@@ -2,6 +2,9 @@
   "name": "auxiliary_backend",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "engines": {
+    "node": "16.x"
+  },
   "private": true,
   "scripts": {
     "build": "npx esbuild ./api/index.ts --bundle --platform=node --outfile=dist/index.js",
