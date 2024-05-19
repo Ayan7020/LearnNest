@@ -1,18 +1,19 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "src/index.ts",
-            "use": "@vercel/node",
-            "config": {
-                "includeFiles": ["src/**"]
-            }
+      {
+        "src": "src/index.ts",
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": ["src/**/*", "@repo/data/HomepageExplorerData", "@repo/eslint-config", "@repo/data","@repo/typescript-config/base.json"]
         }
+      }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "src/index.ts"
-        }
+      {
+        "src": "/(.*)",
+        "dest": "dist/index.js"
+      }
     ]
-}
+  }
+  
