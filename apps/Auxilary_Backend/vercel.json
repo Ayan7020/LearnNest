@@ -1,18 +1,19 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "src/index.ts",
-            "use": "@vercel/node",
-            "config": {
-                "includeFiles": ["src/**", "node_modules/@repo/**","@repo/**"]
-            }
+      {
+        "src": "src/index.ts",
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": ["src/**/*", "@repo/data/**/*", "@repo/**/*", "packages/**/*"]
         }
+      }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "dist/index.js"
-        }
+      {
+        "src": "/(.*)",
+        "dest": "dist/index.js"
+      }
     ]
-}
+  }
+  
