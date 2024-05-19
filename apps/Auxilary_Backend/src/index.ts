@@ -1,18 +1,29 @@
 import express from "express";  
 import { HomePageExplore } from "@repo/data/HomepageExplorerData";
+import dotenv from  "dotenv"; 
 const app = express();
 
-app.get("/", (req, res) => {  
-    console.log(HomePageExplore)
+dotenv.config();
+const PORT = process.env.PORT || 4000;
+
+app.get("/", (req, res) => {   
     return res.json({
-        Name: "AYAN SHAIKh", 
+        Name: "AYAN SHAIKH", 
         Explore: HomePageExplore,
         Success: true
     })
 })
 
-app.listen(4000,() => {
-    console.log("Server is running on port 4000");
+app.get("/HOME", (req, res) => {  
+    return res.json({
+        Name: "AYAN SHAIKH HOME", 
+        Explore: HomePageExplore,
+        Success: true
+    })
+})
+
+app.listen(PORT,() => {
+    console.log(`Server is running on port ${PORT} in the environment: ${process.env.ENVIRONMENT}`); 
 })
 
 module.exports = app;
