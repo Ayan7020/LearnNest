@@ -15,14 +15,14 @@ app.get('/ping',(req,res) => {
 
 const PingURL = process.env.PINGURL || ""
 
-cron.schedule('*/5 * * * *',async () => {
-    try {
-        const response = await axios.get(PingURL);
-        console.log('Ping successful:', response.data);
-    } catch (error) {
-        console.error('Error pinging the server:', error);
-    }
-})
+// cron.schedule('*/15 * * * *',async () => {
+//     try {
+//         const response = await axios.get(PingURL);
+//         console.log('Ping successful:', response.data);
+//     } catch (error) {
+//         console.error('Error pinging the server:', error);
+//     }
+// })
 app.get("/", (req, res) => {    
     return res.json({
         Name: "AYAN SHAIKH", 
