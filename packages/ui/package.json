@@ -5,6 +5,7 @@
   "exports": {
     "./button": "./src/Button/CTAbutton.tsx",
     "./card": "./src/Card/CodeCard.tsx",
+    "./Button": "./src/Button/NormalButton.tsx",
     "./code": "./src/code.tsx",
     "./utils": "./lib/utils.ts",
     "./globals.css": "./app/globals.css",
