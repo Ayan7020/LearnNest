@@ -68,13 +68,17 @@ const Sidebar = ({onClick,State}:{
           </li>
         ))}
       </ul>
-      <div className="flex flex-col gap-2 pt-4 border-t-2 border-black dark:border-white items-center">
+      <div className="flex flex-col gap-2 pt-4 border-t-2 border-black dark:border-white  items-center">
+        <Link href={'/singup'} className='w-full flex flex-col items-center'> 
         <Button className="bg-transparent border border-white text-black dark:text-white rounded-[15px] px-6 py-3 hover:bg-transparent ring-1 dark:hover:text-white  transition-colors duration-300 ease-in-out focus:ring-2 w-[70%] ">
           Login
         </Button>
-        <Button className="bg-[#9C49CF] text-white rounded-[15px] px-6 py-3 hover:bg-[#671997] transition-colors duration-300 ease-in-out w-[70%]">
+        </Link>
+        <Link href={'/signup'} className='w-full flex flex-col items-center'>
+        <Button className="bg-[#9C49CF] text-white rounded-[15px] px-6 py-3 hover:bg-[#671997] transition-colors duration-300 ease-in-out w-[70%]" onClick={onClick}>
           Signup
         </Button>
+        </Link>
       </div>
     </motion.div>
   );
