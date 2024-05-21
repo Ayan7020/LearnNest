@@ -19,7 +19,7 @@ const SignupForm = () => {
             <TextInput placeholder="Enter password" label="Create Password" inputType="password" typePassword={true}/>    
             <TextInput placeholder="Confirm password" label="Confirm Password" inputType="password" typePassword={true}/>    
         </div>    
-        <button type="submit" className="bg-[#9C49CF] text-[13px] sm:text-[16px] font-bold rounded p-2 text-center mt-3 hover:scale-95 transition-all duration-200 hover:ring-1 ring-white text-white ">Submit</button>
+        <button type="submit" className="bg-[#9C49CF] h-[50px] text-[13px] sm:text-[16px] font-bold rounded p-2 text-center mt-3 hover:scale-95 transition-all duration-200 hover:ring-1 ring-white text-white ">Submit</button>
         
     </form>
 }
