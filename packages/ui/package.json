@@ -19,7 +19,8 @@
     "./TypeWritterEffect": "./src/Acertinty/typewriter-effect.tsx",
     "./AnimatedButton": "./src/Button/AnimatedButton.tsx",
     "./CourseCard": "./src/Card/CourseCard.tsx",
-    "./BackgroundGradient": "./src/Acertinty/background-gradient.tsx"
+    "./BackgroundGradient": "./src/Acertinty/background-gradient.tsx",
+    "./TextInput": "./src/Input/TextInput.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
