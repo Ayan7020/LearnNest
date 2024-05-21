@@ -33,7 +33,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div>
-      <motion.div initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.0, ease: "easeOut" }}  className="flex  h-20 items-center justify-center shadow-[10px_-5px_50px_-5px]  shadow-blue-200">
+      <motion.div initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.0, ease: "easeOut" }}  className="flex   h-20 items-center justify-center shadow-[10px_-5px_50px_-5px]  shadow-blue-200">
         <div className="flex w-11/12 max-w-maxContent items-center justify-between">
           <Link href="/">
             <h1 className=" text-2xl lg:text-3xl font-semibold">LearnNest</h1>
@@ -63,14 +63,16 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
           </nav>
           <div className="hidden md:flex gap-3  items-center">
             {token === null && (
-              <Button className="bg-transparent h-12 text-black dark:text-white rounded-lg hover:bg-transparent  hover:ring-2 focus:ring-2 ">
-                Login
-              </Button>
+              <Link  href={"/login"} >
+                <Button className="bg-transparent h-12 text-black dark:text-white rounded-lg hover:bg-transparent  hover:ring-2 focus:ring-2 ">Login</Button> 
+              </Link>
             )}
             {token === null && (
+              <Link href={"/signup"}>
               <Button className="bg-[#9C49CF] h-12 text-white rounded-lg hover:bg-[#671997] focus:ring-2">
                 Signup
               </Button>
+              </Link>
             )}
           <ModeToggle/>
           </div>
