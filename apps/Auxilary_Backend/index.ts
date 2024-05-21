@@ -1,13 +1,21 @@
 import express from "express";
 import axios from "axios";
-import cron from "node-cron";  
-import { HomePageExplore } from "@repo/data/HomepageExplorerData";
+import cron from "node-cron";   
 import dotenv from  "dotenv"; 
+import cors from "cors";
+
 const app = express();
 
-dotenv.config();
-
+dotenv.config(); 
 const PORT = process.env.PORT || 4000;
+
+
+app.use(express.json()) 
+app.use( cors({
+    origin: "*",
+    credentials: true
+}))
+
 
 app.get('/ping',(req,res) => {
     res.send('Server is Alive')
@@ -15,6 +23,7 @@ app.get('/ping',(req,res) => {
 
 const PingURL = process.env.PINGURL || ""
 
+// Research -----> 
 // cron.schedule('*/15 * * * *',async () => {
 //     try {
 //         const response = await axios.get(PingURL);
@@ -24,20 +33,12 @@ const PingURL = process.env.PINGURL || ""
 //     }
 // })
 app.get("/", (req, res) => {    
-    return res.json({
-        Name: "AYAN SHAIKH", 
-        Explore: HomePageExplore,
-        Success: true
+    return res.json({   
+        Success: true,
+        message:'Your server is up and running....'
     })
 })
-
-app.get("/HOME", (req, res) => {  
-    return res.json({
-        Name: "AYAN SHAIKH HOME", 
-        Explore: HomePageExplore,
-        Success: true
-    })
-})
+ 
 
 app.listen(PORT,() => {
     console.log(`Server is running on port ${PORT} in the environment: ${process.env.ENVIRONMENT}`); 
