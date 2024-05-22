@@ -1,11 +1,11 @@
-import CredentialsProvider from "next-auth/providers/credentials"; 
-// import bcrypt from "bcrypt"; 
+import CredentialsProvider from "next-auth/providers/credentials";  
+import db from "@repo/db/client";
 
 export const authOptions = {
     providers: [
         CredentialsProvider({
             name: 'Credentials',
-            credentials: {
+            credentials: { 
                 username: { label: "Email Address", type: "text", placeholder: "Johndoe@gmail.com", required: true },
                 password: { label: "Password", type: "password", required: true }
             },
@@ -31,8 +31,5 @@ export const authOptions = {
             session.user.id = token.sub;
             return session;
         }
-    },
-    pages: {
-        signIn: '/signin'  
-    }
+    } 
 };
