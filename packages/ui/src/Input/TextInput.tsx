@@ -23,11 +23,11 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           style={{
             boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
           }}
-          className="w-full p-[12px] dark:text-richblack-5 rounded-[0.5rem] text-black border-black  border-2 dark:bg-richblack-800 font-medium"
+          className={`w-full p-[12px] dark:text-richblack-5  rounded-[0.5rem] text-black   border-2 dark:bg-richblack-800 font-medium ${ ErrorMessage? "border-[#ff4d4d] ": "border-black"}`}
           placeholder={placeholder}
           {...props}
         />
-        <div className="text-sm text-[#ff4d4d]">{ErrorMessage}</div>
+        <div className="text-sm text-[#ff4d4d] font-semibold ">{ErrorMessage}</div>
       </div>
     );
   }
