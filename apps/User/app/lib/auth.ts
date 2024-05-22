@@ -1,4 +1,5 @@
 import CredentialsProvider from "next-auth/providers/credentials";   
+import db from "@repo/db/clients";
 
 export const authOptions = {
     providers: [
