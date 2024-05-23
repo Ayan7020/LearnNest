@@ -1,26 +1,35 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import TextInput from "@repo/ui/TextInput";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { SignInSchema, SignInSchemaValue } from "@repo/common/SigninSchema";
 import { useRouter } from "next/navigation";
 import CTAButton from "@repo/ui/button";
+import axios from "axios";
 
-const SignupForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SignInSchemaValue>({
-    resolver: zodResolver(SignInSchema),
+const SignupForm = () => { 
+  
+  const {register, handleSubmit,formState: { errors }} = useForm<SignInSchemaValue>({
+    resolver: zodResolver(SignInSchema), 
   });
-  const Router = useRouter();
-  const onSubmit: SubmitHandler<SignInSchemaValue> = (data, e) => {
-    e?.preventDefault();
 
-    Router.push("/");
-    console.log(data);
+  const Router = useRouter();
+ 
+  const onSubmit: SubmitHandler<SignInSchemaValue> = async (data, e) => {
+    e?.preventDefault(); 
+    console.log("DATA : ",data); 
+    try {
+      const response = await axios.post("http://localhost:3000/api/signup",{
+      data
+    }) 
+    console.log("Response : ",response)
+    } catch (e) {
+      console.error(e)
+    } 
   };
+
+
 
   return (
     <form
@@ -31,24 +40,24 @@ const SignupForm = () => {
         <TextInput
           placeholder="Enter first name"
           label="First Name"
-          inputType="text"
-          {...register("FirstName")}
+          inputType="text"   
+          {...register("FirstName")}  
           ErrorMessage={errors.FirstName && errors.FirstName.message}
         />
         <TextInput
           placeholder="Enter last name"
           label="Last Name"
-          inputType="text"
-          {...register("LastName")}
-          ErrorMessage={errors.LastName && errors.LastName.message}
+          inputType="text"  
+          {...register("LastName")} 
+          ErrorMessage={errors.LastName && errors.LastName.message} 
         />
       </div>
       <div className="my-2">
         <TextInput
           placeholder="Enter email address"
           label="Email Address"
-          inputType="text"
-          {...register("email")}
+          inputType="text" 
+          {...register("email")} 
           ErrorMessage={errors.email && errors.email.message}
         />
       </div>
@@ -57,7 +66,7 @@ const SignupForm = () => {
           placeholder="Enter password"
           label="Create Password"
           inputType="password"
-          typePassword={true}
+          typePassword={true} 
           {...register("password")}
           ErrorMessage={errors.password && errors.password.message}
         />
@@ -65,7 +74,7 @@ const SignupForm = () => {
           placeholder="Confirm password"
           label="Confirm Password"
           inputType="password"
-          typePassword={true}
+          typePassword={true} 
           {...register("confirmPassword")}
           ErrorMessage={
             errors.confirmPassword && errors.confirmPassword.message
