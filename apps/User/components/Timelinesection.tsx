@@ -55,9 +55,11 @@ const Timelinesection = () => {
                     })
                 }
             </div>
-            <div className="relative w-fit h-fit rounded-xl shadow-blue-200 shadow-[0px_0px_30px_0px]">
+            <div  
+            className="relative w-fit h-fit rounded-xl shadow-blue-200 shadow-[0px_0px_30px_0px]">
                 <Image src={timelineimage} alt="Image" className="rounded-xl"/> 
-                <div className="bg-caribbeangreen-700 absolute lg:left-[50%] lg:bottom-0 lg:translate-x-[-50%] lg:translate-y-[50%] top-0 lg:top-auto  flex lg:flex-row uppercase text-white py-5 gap-4 lg:gap-0 lg:py-10">
+                <motion.div   
+                className="bg-caribbeangreen-700 absolute lg:left-[50%] lg:bottom-0 lg:translate-x-[-50%] lg:translate-y-[50%] top-0 lg:top-auto  flex flex-col lg:flex-row uppercase text-white py-5 gap-4 lg:gap-0 lg:py-10">
                     <div className="flex gap-5 items-center lg:border-r border-caribbeangreen-300 px-7 lg:px-14">
                         <p className="text-3xl font-bold w-[75px]">10</p>
                         <p className="text-caribbeangreen-300 text-sm w-[75px]">Years of Experience</p>
@@ -66,7 +68,7 @@ const Timelinesection = () => {
                         <p className='text-3xl font-bold w-[75px]'>250</p>
                         <p className='text-caribbeangreen-300 text-sm w-[75px]'>Types of Courses</p>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     </div>)

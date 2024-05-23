@@ -5,6 +5,7 @@
   "exports": {
     "./button": "./src/Button/CTAbutton.tsx",
     "./card": "./src/Card/CodeCard.tsx",
+    "./Button": "./src/Button/NormalButton.tsx",
     "./code": "./src/code.tsx",
     "./utils": "./lib/utils.ts",
     "./globals.css": "./app/globals.css",
@@ -19,7 +20,8 @@
     "./TypeWritterEffect": "./src/Acertinty/typewriter-effect.tsx",
     "./AnimatedButton": "./src/Button/AnimatedButton.tsx",
     "./CourseCard": "./src/Card/CourseCard.tsx",
-    "./BackgroundGradient": "./src/Acertinty/background-gradient.tsx"
+    "./BackgroundGradient": "./src/Acertinty/background-gradient.tsx",
+    "./TextInput": "./src/Input/TextInput.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
