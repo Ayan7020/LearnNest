@@ -1,6 +1,10 @@
 import CredentialsProvider from "next-auth/providers/credentials";   
+<<<<<<< HEAD
 import db from "@repo/db/clients"
  
+=======
+
+>>>>>>> parent of 44a5300 (Feat: Add Database)
 export const authOptions = {
     providers: [
         CredentialsProvider({
