@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod"; 
 
 export const SignInSchema = z.object({
     FirstName: z.string().min(1,{message: "Name is Required"}),

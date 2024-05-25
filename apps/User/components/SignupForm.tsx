@@ -44,7 +44,7 @@ const SignupForm = () => {
     }); 
     setloading(false) 
     if(response.data.success){
-      toast.success(response.data.message)
+      toast.success(response.data.message) 
       Router.push("/Sendotp")
     } 
     else {
