@@ -152,8 +152,8 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
-    "schemaEnvPath": "../../../../../apps/User/.env"
+    "rootEnvPath": null,
+    "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../..",
   "clientVersion": "5.14.0",
@@ -171,8 +171,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\r\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\r\n\r\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\r\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\r\n\r\ngenerator client {\r\n  provider = \"prisma-client-js\"\r\n  output   = \"./generated/client\"\r\n}\r\n\r\ndatasource db {\r\n  provider = \"postgresql\" \r\n  url      = env(\"DATABASE_URL\")\r\n}\r\n\r\nmodel User {\r\n  id        Int     @id @default(autoincrement())\r\n  Firstname String\r\n  Lastname  String?\r\n  email     String  @unique\r\n  password  String?\r\n}\r\n\r\n\r\nmodel admin {\r\n  id        Int     @id @default(autoincrement())\r\n  Firstname String\r\n  Lastname  String?\r\n  email     String  @unique\r\n  password  String? \r\n} ",
-  "inlineSchemaHash": "faff2e05fac48fa7c4fe3f525cac238ab7ee77d6af713890894774b748ce9d59",
+  "inlineSchema": "// This is your Prisma schema file,\r\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\r\n\r\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\r\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\r\n\r\ngenerator client {\r\n  provider = \"prisma-client-js\"\r\n  output   = \"./generated/client\"\r\n}\r\n\r\n\r\n\r\ndatasource db {\r\n  provider = \"postgresql\" \r\n  url      = env(\"DATABASE_URL\")\r\n}\r\n\r\nmodel User {\r\n  id        Int     @id @default(autoincrement())\r\n  Firstname String\r\n  Lastname  String?\r\n  email     String  @unique\r\n  password  String?\r\n}\r\n\r\n\r\nmodel admin {\r\n  id        Int     @id @default(autoincrement())\r\n  Firstname String\r\n  Lastname  String?\r\n  email     String  @unique\r\n  password  String? \r\n} ",
+  "inlineSchemaHash": "a1710d1720d7cb130cb0441b65eb70fc3e77108d6e9428c7ab1f262ef33d0c1f",
   "copyEngine": true
 }
 
@@ -181,8 +181,8 @@ const fs = require('fs')
 config.dirname = __dirname
 if (!fs.existsSync(path.join(__dirname, 'schema.prisma'))) {
   const alternativePaths = [
-    "../../packages/db/prisma/generated/client",
-    "../packages/db/prisma/generated/client",
+    "prisma/generated/client",
+    "generated/client",
   ]
   
   const alternativePath = alternativePaths.find((altPath) => {
@@ -211,7 +211,7 @@ Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
-path.join(process.cwd(), "../../packages/db/prisma/generated/client/query_engine-windows.dll.node")
+path.join(process.cwd(), "prisma/generated/client/query_engine-windows.dll.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
-path.join(process.cwd(), "../../packages/db/prisma/generated/client/schema.prisma")
+path.join(process.cwd(), "prisma/generated/client/schema.prisma")
