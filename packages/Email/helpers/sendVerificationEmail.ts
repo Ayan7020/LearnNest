@@ -1,5 +1,5 @@
 import {transporter} from '../transporter'
-import otpTemplate from "@repo/Email/VerificationEmail";
+import otpTemplate from "../template/VerificationEmail";
 import { ApiResponse } from "@repo/types/ApiResponse";
 import dotenv from  "dotenv"
 
