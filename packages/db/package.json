@@ -4,8 +4,8 @@
   "dependencies": {
     "@prisma/client": "^5.13.0"
   },
-  "scripts": {
-    "postinstall": "npx prisma generate --schema=../../packages/db/prisma/schema.prisma",
+  "scripts": { 
+    "postinstall": "prisma generate --schema=../../packages/db/prisma/schema.prisma",
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate"
   },
