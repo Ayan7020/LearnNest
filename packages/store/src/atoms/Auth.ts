@@ -1,8 +1,16 @@
 import { atom } from 'recoil';
+import {SignupFormValid} from "@repo/types/SignupValid"
 
-
-const signupDataState = atom({
+export const SignupData = atom<SignupFormValid>({
     key: 'signupDataState',
-    default: null,
+    default: {
+        FirstName: '',
+        LastName: '',
+        email: '',
+        password: '',
+        otp: '',
+    },
 });
  
+
+
