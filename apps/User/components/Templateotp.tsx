@@ -1,9 +1,8 @@
-"use client"; 
-import {InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot} from "@repo/ui/OtpInput"
+"use client";  
 import PlainButton from "@repo/ui/Button"; 
 import { SignupData } from "@repo/store/Auth";
 import { useRecoilState } from "recoil";
-import { ChangeEvent, useState } from "react";
+import {  useState } from "react";
 import { toast } from "react-hot-toast" 
 import OtpInput from "react-otp-input"; 
 import axios from "axios";
