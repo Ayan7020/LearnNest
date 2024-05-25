@@ -7,6 +7,9 @@
   "devDependencies": {
     "prisma": "^5.13.0"
   },
+  "prisma": {
+    "schema": "./prisma/schema.prisma"
+  },
   "exports": {
     "./clients": "./index.ts"
   }
