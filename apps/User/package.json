@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cd ../packages/db && npx prisma generate",
+    "build": "next build && cd ../../packages/db && npx prisma generate", 
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
     "postinstall": "prisma generate --schema=../../packages/db/prisma/schema.prisma"
