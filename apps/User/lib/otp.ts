@@ -1,11 +1,10 @@
 const generateOtp = (length: number) => {
-    const digits = '0123456789';
+    const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     let otp = '';
     for (let i = 0; i < length; i++) {
-        otp += digits[Math.floor(Math.random() * 10)];
+        otp += characters[Math.floor(Math.random() * characters.length)];
     }
     return otp;
 };
- 
 
-export default generateOtp
+export default generateOtp;

@@ -62,7 +62,7 @@ const TemplateOtp = () => {
  
 
 
-    return <div className="w-[100%] md:w-[600px] flex flex-col items-center gap-10 shadow-[10px_-5px_50px_-5px]  shadow-blue-200 p-6 md:rounded-xl">
+    return <div className="w-[100%] md:w-[600px] flex flex-col items-center gap-10 shadow-[10px_-5px_50px_-5px]  shadow-blue-200 p-6 rounded-xl">
         <div className="flex flex-col items-center justify-center gap-2">
             <h2 className="text-xl lg:text-4xl text-[#9C49CF]">Verification Code</h2>
             <p className="text-md lg:text-lg text-richblack-200 ">we have sent the code verification to your email</p>
@@ -75,7 +75,7 @@ const TemplateOtp = () => {
                 <OtpInput
                  value={input}
                  onChange={setInput}
-                 numInputs={6}
+                 numInputs={6} 
                  renderInput={(props) => (
                     <input
                     {...props}
