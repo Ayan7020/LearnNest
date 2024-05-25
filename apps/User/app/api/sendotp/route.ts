@@ -1,11 +1,14 @@
-import { sendVerificationEmail } from "@repo/email/sendVerificationEmail"
-import { SignupData } from "@repo/store/Auth"
+import { sendVerificationEmail } from "@repo/email/sendVerificationEmail" 
 import { NextRequest, NextResponse } from "next/server"
 
-
+type Sendotp = {
+    email: string,
+    username: string,
+    otp: string
+}
  
-const sendOtp = async (req:NextRequest,res:NextResponse) => { 
-    const body = await req.json() 
+const sendOtp = async  (req:NextRequest,res:NextResponse) => { 
+    const body: Sendotp = await req.json() 
     const { email, username,otp } = body 
     const response  = await  sendVerificationEmail(email,username,otp) 
     

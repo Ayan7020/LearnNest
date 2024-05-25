@@ -23,14 +23,13 @@ const TemplateOtp = () => {
         const otp = data.otp;  
  
         if(otp===input){   
-            try {
-                toast.loading("Please Wait !!!",{duration: 5000 })
+            try { 
                 const response = await axios.post(`/api/signup`,{ 
                     FirstName: data.FirstName,
                     LastName: data.LastName,
                     email: data.email,
                     password: data.password
-                  });
+                  }); 
                   if(response.data.success){
                     setdata(prevData => ({
                         ...prevData,
@@ -44,7 +43,7 @@ const TemplateOtp = () => {
                         ...prevData,
                         otp: ''   
                     }));
-                    toast.error(response.data.message);
+                    toast.error(`${response.data.message}`);
                     Router.push("/signup")
                   }
             } catch (e) {
@@ -62,7 +61,7 @@ const TemplateOtp = () => {
  
 
 
-    return <div className="w-[100%] md:w-[600px] flex flex-col items-center gap-10 shadow-[10px_-5px_50px_-5px]  shadow-blue-200 p-6 rounded-xl">
+    return <div className="w-full md:w-[600px] flex flex-col items-center gap-10 shadow-[10px_-5px_50px_-5px]  shadow-blue-200 p-6 rounded-xl">
         <div className="flex flex-col items-center justify-center gap-2">
             <h2 className="text-xl lg:text-4xl text-[#9C49CF]">Verification Code</h2>
             <p className="text-md lg:text-lg text-richblack-200 ">we have sent the code verification to your email</p>

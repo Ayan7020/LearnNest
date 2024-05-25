@@ -1,12 +1,6 @@
 import React, { forwardRef } from "react";
+import { TextInputProps } from "@repo/types/InputProps";
 
-interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  placeholder: string;
-  label: string;
-  inputType: string;
-  typePassword?: boolean;
-  ErrorMessage?: any;
-}
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
     { placeholder, label, inputType, typePassword, ErrorMessage, ...props },
