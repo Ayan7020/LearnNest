@@ -12,5 +12,9 @@
   "dependencies": {
     "@types/recoil": "^0.0.9",
     "recoil": "^0.7.7"
+  },
+  "exports": {
+    "./Loading": "./src/atoms/loading.ts",
+    "./Auth": "./src/atoms/Auth.ts" 
   }
 }
