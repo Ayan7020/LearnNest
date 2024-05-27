@@ -1,7 +1,7 @@
 "use client";
 
 import TextInput from "@repo/ui/TextInput";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { SignInSchema, SignInSchemaValue } from "@repo/common/SignInSchema";
 import { zodResolver } from "@hookform/resolvers/zod";

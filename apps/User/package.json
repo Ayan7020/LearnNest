@@ -12,6 +12,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.4.2",
     "@next/font": "^14.2.3",
+    "@repo/common": "*",
     "@repo/db": "*",
     "@repo/ui": "*",
     "@prisma/client": "^5.13.0",
