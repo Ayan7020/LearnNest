@@ -1,7 +1,7 @@
 import CredentialsProvider from "next-auth/providers/credentials";   
 import GoogleProvider from "next-auth/providers/google";
 import db from "@repo/db/clients";
-
+import bcrypt from "bcrypt";
 export const authOptions = {
     providers: [
         GoogleProvider({
@@ -11,22 +11,32 @@ export const authOptions = {
         CredentialsProvider({
             name: 'Credentials',
             credentials: { 
-                username: { label: "Email Address", type: "text", placeholder: "Johndoe@gmail.com", required: true },
+                email: { label: "Email Address", type: "text", placeholder: "Johndoe@gmail.com", required: true },
                 password: { label: "Password", type: "password", required: true }
             },
-            async authorize(credentials: any) {  
-                const existingUser = {id:2}
-                const token = {
-                    email: "Johndoe@gmail.com",
-                    accountType: "Student", 
+            async authorize(credentials: any) {   
+                const ExistingUser = await db.user.findFirst({
+                    where: {
+                        email: credentials.username 
+                    }
+                });
+                if(!ExistingUser){ 
+                    throw new Error("User Doesn't Exist");
                 } 
-                return {  
-                    id: existingUser.id.toString(), 
-                    success: true,
-                    message: 'Login Successfull', 
-                    token,
-
-                };
+                else {
+                    const Pass = ExistingUser.password || ""
+                    const isValidPassword = await bcrypt.compare(credentials.password,Pass);
+                    if(!isValidPassword){
+                        throw new Error("Invalid Password");
+                    } 
+                    else { 
+                        return {  
+                            id: ExistingUser.id.toString(),  
+                            name: ExistingUser.Firstname, 
+                            email: ExistingUser.email 
+                        };
+                    } 
+                } 
             } 
         })
     ],
@@ -36,6 +46,34 @@ export const authOptions = {
         async session({ token, session }: any) {
             session.user.id = token.sub;
             return session;
-        }
+        },
+        async signIn({account,profile}: any){
+            if(account.provider === "google"){
+                const ExistingUser = await db.user.findFirst({
+                    where: { 
+                        email: profile.email
+                    }
+                });
+                if(!ExistingUser){
+                    try {
+                        const response = await db.user.create({
+                            data: {
+                                Firstname: profile.name,
+                                email: profile.email 
+                            }
+                        }); 
+                        return true; 
+                    } catch (e){
+                        console.error("Error in Google Account Creation : ",e);
+                        return false;
+                    }
+                }
+                return true;
+            } 
+            return true;
+        },
+        async redirect({ url, baseUrl }: any) { 
+            return `${baseUrl}/myprofile`;
+        },
     } 
 };
