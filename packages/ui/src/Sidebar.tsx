@@ -1,3 +1,4 @@
+"use client";
 import { motion } from 'framer-motion';
 import { NavbarLinks } from "../../data/Navbar-links";
 import Dropdown from "./dropdown/Dropdown";
@@ -5,6 +6,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "./shad/ui/button";
 import React, { useState, useEffect } from 'react';
+import { useSession } from "next-auth/react";
+import { signOut } from 'next-auth/react';
+import  {useRouter} from "next/navigation"
+import CustomButton from '@repo/ui/Button'
 
 const subLinks = [
   {
@@ -24,25 +29,33 @@ const variants = {
         opacity: 1,
         x: 0,
         transition: {
-            duration: 0.3, // Adjust the duration of the animation
+            duration: 0.3, 
         },
     },
     closed: {
         opacity: 0,
         x: "-100%",
         transition: {
-            duration: 0.3, // Adjust the duration of the animation
+            duration: 0.3,  
         },
     },
 };
 
-const Sidebar = ({onClick,State}:{
+const Sidebar = ({onClick,State}:{ 
   onClick: () => void,
   State: boolean
 }) => {
+  const session = useSession();
+  const Router = useRouter();
+  const token = session.data;
   const router = usePathname();
   const isOpen = State; 
   const [shouldRender, setShouldRender] = useState(true);
+
+  const handleSignOut = async () => {
+    await signOut({ redirect: false }); // Prevents automatic redirection
+    Router.push('/login'); // Manually redirect to the desired page
+  };
 
   return (
     <motion.div
@@ -69,16 +82,26 @@ const Sidebar = ({onClick,State}:{
         ))}
       </ul>
       <div className="flex flex-col gap-2 pt-4 border-t-2 border-black dark:border-white  items-center">
-        <Link href={'/singup'} className='w-full flex flex-col items-center'> 
+        {token === null && <Link href={'/login'} className='w-full flex flex-col items-center'> 
         <Button className="bg-transparent border border-white text-black dark:text-white rounded-[15px] px-6 py-3 hover:bg-transparent ring-1 dark:hover:text-white  transition-colors duration-300 ease-in-out focus:ring-2 w-[70%] ">
           Login
         </Button>
-        </Link>
-        <Link href={'/signup'} className='w-full flex flex-col items-center'>
+        </Link>}
+        {token === null && <Link href={'/signup'} className='w-full flex flex-col items-center'>
         <Button className="bg-[#9C49CF] text-white rounded-[15px] px-6 py-3 hover:bg-[#671997] transition-colors duration-300 ease-in-out w-[70%]" onClick={onClick}>
           Signup
         </Button>
-        </Link>
+        </Link>}
+        {token && (
+         <Link href={'/myprofile'} className='w-full  flex flex-col items-center'>
+         <CustomButton  onClick={onClick} width_Button='full' active={true}>
+           Dashboard
+         </CustomButton> 
+         </Link>)}
+        {token && ( 
+         <CustomButton  onClick={handleSignOut} width_Button='full' active={false}>
+           Signout
+         </CustomButton>    )}
       </div>
     </motion.div>
   );
