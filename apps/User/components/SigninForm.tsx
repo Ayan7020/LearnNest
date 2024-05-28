@@ -12,13 +12,9 @@ import { signIn } from "next-auth/react";
 
 const SigninForm = () => {
   const [loading,setloading] = useRecoilState(SignupLoading)  
-  const router = useRouter();
+  const router = useRouter(); 
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SignInSchemaValue>({
+  const {register,handleSubmit,formState: { errors }} = useForm<SignInSchemaValue>({
     resolver: zodResolver(SignInSchema),
   });
   const onSubmit: SubmitHandler<SignInSchemaValue> = async (data, e) => {
