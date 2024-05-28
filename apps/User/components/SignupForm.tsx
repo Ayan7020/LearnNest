@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import TextInput from "@repo/ui/TextInput";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { SignInSchema, SignInSchemaValue } from "@repo/common/SigninSchema";
+import { SignUpSchema, SignUpSchemaValue } from "@repo/common/signupschemas";
 import { useRouter } from "next/navigation";
 import { SignupLoading } from "@repo/store/Loading";
 import { useRecoilState } from "recoil";
@@ -18,12 +18,12 @@ const SignupForm = () => {
   const [Signupdata,setSignupData] = useRecoilState(SignupData)
   const [loading,setloading] = useRecoilState(SignupLoading) 
 
-  const {register,handleSubmit,formState: { errors },} = useForm<SignInSchemaValue>({
-    resolver: zodResolver(SignInSchema),
+  const {register,handleSubmit,formState: { errors },} = useForm<SignUpSchemaValue>({
+    resolver: zodResolver(SignUpSchema),
   });
   const Router = useRouter();
 
-  const onSubmit: SubmitHandler<SignInSchemaValue> = async (data, e) => {
+  const onSubmit: SubmitHandler<SignUpSchemaValue> = async (data, e) => {
     e?.preventDefault();    
     try { 
       setloading(true)  

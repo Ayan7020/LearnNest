@@ -17,4 +17,4 @@
     "./Loading": "./src/atoms/loading.ts",
     "./Auth": "./src/atoms/Auth.ts" 
   }
-}
+} 

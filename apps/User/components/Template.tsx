@@ -7,6 +7,7 @@ import SignupImage from "../public/signup.webp";
 import Googlepng from "../public/Google.png";
 import Image from "next/image"; 
 import { signIn } from 'next-auth/react';
+import { useRouter } from "next/navigation";
 
 interface TemplateProps  { 
     title: string,
@@ -17,6 +18,7 @@ interface TemplateProps  {
 }
 
 const Template = ({ title, description1, description2, image, formType }: TemplateProps) => {
+    const Router = useRouter() 
     return (
         <motion.div 
         initial={{ opacity: 0 }}
@@ -40,7 +42,7 @@ const Template = ({ title, description1, description2, image, formType }: Templa
                 <button 
                 type="submit"  
                 onClick={async () => {
-                    await signIn("google");
+                    await signIn("google"); 
                 }} className="bg-white flex flex-row items-center justify-center gap-5 text-black text-[13px] sm:text-[16px] font-bold rounded p-2 text-center mt-2 hover:scale-95 transition-all duration-200 ring-2 dark:ring-0 hover:ring-2 ring-[#9C49CF] w-full">
                 <Image src={Googlepng} alt="Google" className="w-8 "/>
                 Sign In with Google     

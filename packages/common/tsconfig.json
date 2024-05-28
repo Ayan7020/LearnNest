@@ -3,6 +3,6 @@
   "compilerOptions": {
     "outDir": "dist"
   },
-  "include": ["schemas"],
+  "include": ["schema"],
   "exclude": ["node_modules", "dist"]
 }
