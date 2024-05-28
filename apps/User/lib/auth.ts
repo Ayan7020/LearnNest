@@ -46,7 +46,7 @@ export const authOptions = {
         async session({ token, session }: any) {
             session.user.id = token.sub;
             return session;
-        },
+        }, 
         async signIn({account,profile}: any){
             if(account.provider === "google"){
                 const ExistingUser = await db.user.findFirst({
@@ -73,6 +73,9 @@ export const authOptions = {
             return true;
         },
         async redirect({ url, baseUrl }: any) { 
+            if (url === '/api/auth/signout') {
+                return `${baseUrl}/`;
+            }
             return `${baseUrl}/myprofile`;
         },
     } 

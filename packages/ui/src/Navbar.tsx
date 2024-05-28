@@ -2,15 +2,28 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { AlignJustify, X } from "lucide-react";
+import { AlignJustify, Database, LayoutDashboard, Settings, X } from "lucide-react";
 import { Button } from "./shad/ui/button";
 import Sidebar from "./Sidebar";
 import { useTheme } from "next-themes";
 import LinksDropdown from "./dropdown/LinksDropdown";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; 
+import { signOut } from 'next-auth/react';
+import CustomButton from '@repo/ui/Button'
 
 import { NavbarLinks } from "../../data/Navbar-links";
 import { ModeToggle } from "./Toggle/ToggleTheme";
+import { useSession } from "next-auth/react";
+import  {useRouter} from "next/navigation"
+import {  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,  } from "./shad/ui/dropdown-menu"; 
+import { DashIcon } from "@radix-ui/react-icons";
+
 
 const subLinks = [
   {
@@ -23,14 +36,20 @@ const subLinks = [
   },
 ];
 
-const Navbar = ({ children }: { children: React.ReactNode }) => {
+const Navbar = ({ children }: { children: React.ReactNode }) => { 
+  const session = useSession();
+  const Router = useRouter();
   const [toggle, setToggle] = useState(false);
   const [action, setAction] = useState(false);
   const { theme } = useTheme(); 
   const router = usePathname();
 
-  const token = null;
+  const handleSignOut = async () => {
+    await signOut({ redirect: false }); // Prevents automatic redirection
+    Router.push('/login'); // Manually redirect to the desired page
+  };
 
+  const token = session.data; 
   return (
     <div>
       <motion.div initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.0, ease: "easeOut" }}  className="flex   h-20 items-center justify-center shadow-[10px_-5px_50px_-5px]  shadow-blue-200">
@@ -74,9 +93,42 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
               </Button>
               </Link>
             )}
+            {token && (
+              <div>
+                <DropdownMenu> 
+                  <DropdownMenuTrigger asChild>  
+                      <div className="bg-[#c567ff] w-12 h-12 flex items-center justify-center rounded-full cursor-pointer text-2xl text-white ">
+                        {session.data.user?.name?.split('')[0]}
+                      </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="">
+                  <DropdownMenuLabel>My Profile</DropdownMenuLabel>
+                  <DropdownMenuSeparator /> 
+                  <DropdownMenuItem>
+                      <Link href="/myprofile" className="flex flex-row items-center justify-center gap-2">
+                        <LayoutDashboard/>
+                        My Dashboard
+                      </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem> 
+                      <Link href="/myprofile" className="flex flex-row items-center justify-center gap-2">
+                        <Settings/>
+                        Settings
+                      </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator /> 
+                  <DropdownMenuItem className="flex items-center justify-center">
+                       <CustomButton active={true} width_Button='full' onClick={handleSignOut}>
+                          LogOut
+                       </CustomButton>
+                  </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+            )}
           <ModeToggle/>
-          </div>
-          <div className="flex md:hidden items-center gap-2">
+          </div> 
+          <div className="flex md:hidden items-center gap-2"> 
           <ModeToggle/>
             <Button
               onClick={() => {setToggle(!toggle); setAction(true)}}

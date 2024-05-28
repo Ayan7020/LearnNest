@@ -1,6 +1,6 @@
 import type { Metadata } from "next"; 
 export const metadata: Metadata = {
-  title: "LearnNest-Signup", 
+  title: "LearnNest-Auth", 
 };
 
 export default function RootLayout({
