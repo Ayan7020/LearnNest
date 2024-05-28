@@ -3,7 +3,7 @@
 import TextInput from "@repo/ui/TextInput";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { SignInSchema, SignInSchemaValue } from "@repo/common/signinschema";
+import { SignInSchema, SignInSchemaValue } from "@repo/common/Loading";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRecoilState } from "recoil";
 import { SignupLoading } from "@repo/store/Loading";

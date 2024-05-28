@@ -1,14 +1,19 @@
 {
   "name": "@repo/common",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "zod": "^3.23.8"
   },
-  "devDependencies": {
-    "zod": "^3.23.8"
-  },
   "exports": {
-    "./signupschema": "./schemas/SignupSchema.ts",
-    "./signinschema": "./schemas/SignInSchema.ts"
+    "./Loading": "./schema/signinschema.ts",
+    "./Auth": "./schema/signupschema.ts" 
   }
 }
