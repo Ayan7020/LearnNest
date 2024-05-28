@@ -1,11 +1,12 @@
-"use client";
+"use client";  
+ 
 import { useSession } from "next-auth/react";
+
 
 const Page = () => {
     const session = useSession();
-    return <div>
-        My Profile :- 
-        {JSON.stringify(session)}
+    return <div className="w-[60%] ">    
+        My Profile Page
     </div>
 }
 
