@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import TextInput from "@repo/ui/TextInput";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { SignUpSchema, SignUpSchemaValue } from "@repo/common/SignupSchema";
+import { SignUpSchema, SignUpSchemaValue } from "@repo/common/signupschema";
 import { useRouter } from "next/navigation";
 import { SignupLoading } from "@repo/store/Loading";
 import { useRecoilState } from "recoil";

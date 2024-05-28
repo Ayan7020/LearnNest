@@ -8,7 +8,7 @@
     "zod": "^3.23.8"
   },
   "exports": {
-    "./SignupSchema": "./schemas/SignupSchema.ts",
-    "./SignInSchema": "./schemas/SignInSchema.ts"
+    "./signupschema": "./schemas/SignupSchema.ts",
+    "./signinschema": "./schemas/SignInSchema.ts"
   }
 }
