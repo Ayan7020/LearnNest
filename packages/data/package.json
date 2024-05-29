@@ -6,6 +6,7 @@
   "devDependencies": { 
   },
   "exports": {
-      "./HomepageExplorerData": "./HomepageExplorer.ts"
+      "./HomepageExplorerData": "./HomepageExplorer.ts",
+      "./Usersidebarconfig": "./User-Sidebar.ts"
   }
 }

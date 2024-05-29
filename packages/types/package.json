@@ -13,6 +13,7 @@
     "./ApiResponse": "./src/ApiResponse.ts",
     "./ButtonProps": "./src/Button.ts",
     "./SignupValid": "./src/Signup.ts",
-    "./InputProps": "./src/Input.ts"
+    "./InputProps": "./src/Input.ts",
+    "./Usersidebar": "./src/Usersidebar.ts"
   }
 }
