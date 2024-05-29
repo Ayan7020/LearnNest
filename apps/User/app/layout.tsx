@@ -1,7 +1,7 @@
 import "@repo/ui/globals.css";
 import type { Metadata } from "next";
 import { Providers } from "./provider";
-import Navbar from "@repo/ui/Navbar"; 
+import Navbar from "@repo/ui/Navbar";  
 import { Toaster } from "react-hot-toast"; 
 
  
@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className="h-full">
         <Providers> 
         <Toaster />  
-          <Navbar children={children} /> 
+          <Navbar children={children} />  
         </Providers>
       </body>
     </html>

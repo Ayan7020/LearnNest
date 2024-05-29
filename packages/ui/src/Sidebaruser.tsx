@@ -13,7 +13,7 @@ const SidebarUser = () =>{
 
     const router = usePathname();
     return(
-        <div className="bg-[#9d00ff1d] w-[13%] hidden md:block"> 
+        <div className="bg-[#9d00ff1d] w-[13%] hidden xl:block h-full"> 
             <ul className="mt-20  w-full flex flex-col gap-4">
                 {UserSideBar.map((element: UserSideBarItem,index):any => {
                     return (

@@ -22,7 +22,8 @@
     "./CourseCard": "./src/Card/CourseCard.tsx",
     "./BackgroundGradient": "./src/Acertinty/background-gradient.tsx",
     "./TextInput": "./src/Input/TextInput.tsx",
-    "./Sidebaruser": "./src/Sidebaruser.tsx"
+    "./Sidebaruser": "./src/Sidebaruser.tsx",
+    "./BottomBar": "./src/Bottom.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

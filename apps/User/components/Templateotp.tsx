@@ -37,7 +37,7 @@ const TemplateOtp = () => {
                     }));
                     toast.success("Signup successfull");
 
-                    Router.push("/")
+                    Router.push("/login")
                   }  else {
                     setdata(prevData => ({
                         ...prevData,
