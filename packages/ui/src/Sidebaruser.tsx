@@ -1,11 +1,12 @@
 'use client';
 import { LayoutDashboard, LogOut, Monitor, Plus, Settings, User } from "lucide-react";
 import * as Icons from "lucide-react"
-import { UserSideBar } from "@repo/data/Usersidebarconfig"
+import { UserSideBar } from "@repo/data/Usersidebarconfig";
+import { UserSideBarItem } from "@repo/types/Usersidebar";
 import Sidebarlinks from "./SidebarLinks";
 import PlainButton from "@repo/ui/Button";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation"; 
 
 
 const SidebarUser = () =>{ 
@@ -14,7 +15,7 @@ const SidebarUser = () =>{
     return(
         <div className="bg-[#9d00ff1d] w-[13%] hidden md:block"> 
             <ul className="mt-20  w-full flex flex-col gap-4">
-                {UserSideBar.map((element,index):any => {
+                {UserSideBar.map((element: UserSideBarItem,index):any => {
                     return (
                         <li key={index} className="w-full">
                             <Sidebarlinks links={element.path} iconName={element.icon} name={element.name} />
