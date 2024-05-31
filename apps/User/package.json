@@ -4,18 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cd ../../packages/db && npx prisma generate", 
+    "build": "next build && cd ../../packages/db && npx prisma generate",
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
     "postinstall": "prisma generate --schema=../../packages/db/prisma/schema.prisma"
   },
   "dependencies": {
-    "@repo/common": "*",
     "@hookform/resolvers": "^3.4.2",
-    "@next/font": "^14.2.3", 
+    "@next-auth/prisma-adapter": "^1.0.7",
+    "@next/font": "^14.2.3",
+    "@prisma/client": "^5.14.0",
+    "@repo/common": "*",
     "@repo/db": "*",
     "@repo/ui": "*",
-    "@prisma/client": "^5.13.0",
     "@types/bcrypt": "^5.0.2",
     "@types/next": "^9.0.0",
     "@types/nodemailer": "^6.4.15",
@@ -41,7 +42,6 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.1.1",
-    "prisma": "^5.13.0",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@types/eslint": "^8.56.5",
@@ -52,6 +52,7 @@
     "eslint": "^8.57.0",
     "file-loader": "^6.2.0",
     "postcss": "^8.4.38",
+    "prisma": "^5.13.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.3.3"
   }

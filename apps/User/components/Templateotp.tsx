@@ -28,8 +28,12 @@ const TemplateOtp = () => {
                     FirstName: data.FirstName,
                     LastName: data.LastName,
                     email: data.email,
-                    password: data.password
-                  }); 
+                    password: data.password,
+                    AccountType: data.AccountType,
+                    Authtype: data.Authtype
+                  });  
+                  
+
                   if(response.data.success){
                     setdata(prevData => ({
                         ...prevData,
