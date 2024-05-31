@@ -5,7 +5,7 @@ import { authOptions } from "../../../lib/auth";
 import Role from "../../../components/Role";
 import { redirect } from "next/navigation";  
 import { useSession } from "next-auth/react"; 
-import Loading from "@repo/ui/Loading";
+import Loading from "@repo/ui/Loader";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import PlainButton from "@repo/ui/Button";

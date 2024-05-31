@@ -1,5 +1,5 @@
 
-import PlainLoading from "@repo/ui/Loading"
+import PlainLoading from "@repo/ui/Loader"
 
 const Loading = () => {
     return <div className="w-screen h-screen flex justify-center items-center"> 
@@ -7,4 +7,4 @@ const Loading = () => {
     </div>
 }
 
-export default Loading;
+export default Loading; 

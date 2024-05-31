@@ -24,7 +24,7 @@
     "./TextInput": "./src/Input/TextInput.tsx",
     "./Sidebaruser": "./src/Sidebaruser.tsx",
     "./BottomBar": "./src/Bottom.tsx",
-    "./Loading": "./src/Loading/loading.tsx"
+    "./Loader": "./src/Loading/Loader.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
