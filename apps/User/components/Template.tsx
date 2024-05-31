@@ -8,6 +8,10 @@ import Googlepng from "../public/Google.png";
 import Image from "next/image"; 
 import { signIn } from 'next-auth/react';
 import { useRouter } from "next/navigation";
+import { useRecoilValue } from "recoil";
+import { SignupFormValid } from "@repo/types/SignupValid";
+import { SignupData } from "@repo/store/Auth";  
+import toast from "react-hot-toast";
 
 interface TemplateProps  { 
     title: string,
@@ -17,14 +21,29 @@ interface TemplateProps  {
     formType: string 
 }
 
+
+
 const Template = ({ title, description1, description2, image, formType }: TemplateProps) => {
+    const Formdata = useRecoilValue<SignupFormValid>(SignupData)
     const Router = useRouter() 
+
+    const handleSignInGoogle = async () => {
+        const typeData = Formdata.AccountType
+        try {    
+           const res =  await signIn('google');   
+           if(!res?.ok ){ 
+                toast.error("Your Account Logged in through Credentials")
+           }
+        } catch (error){
+           console.error("Error signing in:",error)
+        }
+   }
     return (
         <motion.div 
         initial={{ opacity: 0 }}
         animate={{opacity:1}}
         transition={{ease:"linear",duration: 1.0}}
-        className="mx-auto flex w-11/12 max-w-maxContent flex-col-reverse justify-between gap-y-12 py-12 md:flex-row md:gap-y-0 md:gap-x-12"> 
+        className="mx-auto flex w-11/12 max-w-maxContent flex-col-reverse justify-between gap-y-12 py-12 md:flex-row md:gap-y-0 md:gap-x-12">  
             <div className="mx-auto w-11/12 max-w-[450px] md:mx-0">
                 <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-900 dark:text-richblack-5">
                     {title}
@@ -41,9 +60,7 @@ const Template = ({ title, description1, description2, image, formType }: Templa
                 <div className="w-full flex flex-col gap-5">
                 <button 
                 type="submit"  
-                onClick={async () => {
-                    await signIn("google"); 
-                }} className="bg-white flex flex-row items-center justify-center gap-5 text-black text-[13px] sm:text-[16px] font-bold rounded p-2 text-center mt-2 hover:scale-95 transition-all duration-200 ring-2 dark:ring-0 hover:ring-2 ring-[#9C49CF] w-full">
+                onClick={handleSignInGoogle} className="bg-white flex flex-row items-center justify-center gap-5 text-black text-[13px] sm:text-[16px] font-bold rounded p-2 text-center mt-2 hover:scale-95 transition-all duration-200 ring-2 dark:ring-0 hover:ring-2 ring-[#9C49CF] w-full">
                 <Image src={Googlepng} alt="Google" className="w-8 "/>
                 Sign In with Google     
                 </button>

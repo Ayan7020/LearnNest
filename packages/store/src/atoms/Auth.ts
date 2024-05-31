@@ -9,6 +9,9 @@ export const SignupData = atom<SignupFormValid>({
         email: '',
         password: '',
         otp: '',
+        Authtype: 'CREDENTIALS',
+        AccountType: 'Student',
+        Authenticated: false
     },
 });
  

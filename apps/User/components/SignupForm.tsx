@@ -13,10 +13,11 @@ import otpGenerator  from "otp-generator"
 import { SignupData } from "@repo/store/Auth";  
 import otpGenerate from "../lib/otp";
  
-
+ 
 const SignupForm = () => {
   const [Signupdata,setSignupData] = useRecoilState(SignupData)
   const [loading,setloading] = useRecoilState(SignupLoading) 
+  const [toggle,settoggle] = useState<"Instructor" | "Student">("Student")
 
   const {register,handleSubmit,formState: { errors },} = useForm<SignUpSchemaValue>({
     resolver: zodResolver(SignUpSchema),
@@ -34,9 +35,9 @@ const SignupForm = () => {
         email: data.email,
         password: data.password,
         otp:otp,
-      })
-      const url = process.env.NEXTAUTH_URL
-      console.log("URL: ",url)
+        AccountType:toggle,
+        Authtype: "CREDENTIALS"
+      }) 
       const response = await axios.post(`/api/sendotp`,{
       email:data.email,
       username: data.FirstName,
@@ -58,11 +59,24 @@ const SignupForm = () => {
      
   };
 
+  const handleSignupDataAccountType = ({value}:any):void => {
+    settoggle(value) 
+    setSignupData(prevData => ({
+      ...prevData,AccountType: value
+    }))
+  }
+
   return ( 
     <form 
       onSubmit={handleSubmit(onSubmit)}
-      className="mt-4 flex flex-col gap-2 "
+      className="mt-4 flex flex-col gap-2"
     >  
+    <div className="bg-white dark:bg-richblack-800 text-black dark:text-richblack-25 flex gap-2 w-fit px-2 py-2 rounded-2xl  font-semibold  border-2 border-black cursor-pointer ">
+      <p className={`p-2 px-4 text-center ${toggle === "Student" ? "bg-[#9C49CF]  rounded-xl text-white transition-all duration-200": ""}`} onClick={() => {handleSignupDataAccountType( {value:"Student"})}}>Student</p>
+
+
+      <p  className={`p-2 px-4  ${toggle === "Instructor" ? "bg-[#9C49CF] rounded-xl text-white transition-all duration-200": ""}`} onClick={() => {handleSignupDataAccountType( {value:"Instructor"})}}>Instructor</p> 
+    </div>
       <div className="flex w-full gap-10">
         <TextInput
           placeholder="Enter first name"

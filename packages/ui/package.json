@@ -23,7 +23,8 @@
     "./BackgroundGradient": "./src/Acertinty/background-gradient.tsx",
     "./TextInput": "./src/Input/TextInput.tsx",
     "./Sidebaruser": "./src/Sidebaruser.tsx",
-    "./BottomBar": "./src/Bottom.tsx"
+    "./BottomBar": "./src/Bottom.tsx",
+    "./Loader": "./src/Loader.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

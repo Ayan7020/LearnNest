@@ -1,12 +1,31 @@
 import CredentialsProvider from "next-auth/providers/credentials";   
 import GoogleProvider from "next-auth/providers/google";
 import db from "@repo/db/clients";
-import bcrypt from "bcrypt";
-export const authOptions = {
+import bcrypt from "bcrypt";     
+import { Session, getServerSession } from "next-auth";
+import type { Adapter } from "next-auth/adapters"; 
+
+
+interface CustomSession extends Session {
+    AccountType?: string;
+    Authenticated?: boolean;
+    Authtype?: string;
+}
+
+const FetchUserInfo = async (email: string) => {
+    const user = await db.user.findFirst({
+        where: {
+            email: email
+        }
+    });
+    return user;
+};
+
+export const authOptions = {  
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID || '',
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET || ''
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',  
         }),
         CredentialsProvider({
             name: 'Credentials',
@@ -33,7 +52,10 @@ export const authOptions = {
                         return {  
                             id: ExistingUser.id.toString(),  
                             name: ExistingUser.Firstname, 
-                            email: ExistingUser.email 
+                            email: ExistingUser.email,
+                            AccountType: ExistingUser.AccountType, 
+                            Authenticated: ExistingUser.Authenticated,
+                            Authtype: ExistingUser.Authtype
                         };
                     } 
                 } 
@@ -43,40 +65,54 @@ export const authOptions = {
     secret: process.env.JWT_SECRET || "secret",
 
     callbacks: {
-        async session({ token, session }: any) {
-            session.user.id = token.sub;
-            return session;
+        async jwt({ token }: any) {
+            return token;
+          },
+        async session({ token, session,user }: any) { 
+            const userData = await FetchUserInfo(session.user.email);
+            session.user.id = token.sub;    
+            session.user.AccountType = userData?.AccountType || '';
+            session.user.Authenticated = userData?.Authenticated || false;
+            session.user.Authtype = userData?.Authtype || '';
+            return session; 
         }, 
-        async signIn({account,profile}: any){
-            if(account.provider === "google"){
+        async signIn({account,profile,user}: any){ 
+            if(account.provider === "google"){    
+
                 const ExistingUser = await db.user.findFirst({
                     where: { 
                         email: profile.email
                     }
                 });
+
+               
                 if(!ExistingUser){
                     try {
                         const response = await db.user.create({
-                            data: {
+                            data: {     
                                 Firstname: profile.name,
-                                email: profile.email 
-                            }
-                        }); 
+                                email: profile.email,
+                                Authtype: "GOOGLE",
+                                AccountType: "Student"
+                            }   
+                        });
+                        user.Authenticated = false
                         return true; 
                     } catch (e){
                         console.error("Error in Google Account Creation : ",e);
                         return false;
                     }
-                }
+                } 
+                user.Authenticated = ExistingUser.Authenticated
                 return true;
             } 
             return true;
         },
-        async redirect({ url, baseUrl }: any) { 
+        async redirect({ url, baseUrl  }: any) { 
             if (url === '/api/auth/signout') {
                 return `${baseUrl}/`;
             }
-            return `${baseUrl}/myprofile`;
+            return `${baseUrl}/Authtype`;
         },
     } 
 };
