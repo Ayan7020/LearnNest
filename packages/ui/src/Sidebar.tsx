@@ -87,7 +87,7 @@ const Sidebar = ({onClick,State}:{
           Login
         </Button>
         </Link>}
-        {token === null && <Link href={'/signup'} className='w-full flex flex-col items-center'>
+        {token === null && <Link href={'/auth/signup'} className='w-full flex flex-col items-center'>
         <Button className="bg-[#9C49CF] text-white rounded-[15px] px-6 py-3 hover:bg-[#671997] transition-colors duration-300 ease-in-out w-[70%]" onClick={onClick}>
           Signup
         </Button>

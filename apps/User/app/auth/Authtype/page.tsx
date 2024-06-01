@@ -49,7 +49,7 @@ const Page = () => {
           <Loading />
         </div>
       ) : (
-        session?.user.Authenticated &&
+        !session?.user.Authenticated &&
         (loading ? (
           <Loading />
         ) : (
