@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast"
 import OtpInput from "react-otp-input"; 
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Loading from "@repo/ui/Loader";
 
 
     
@@ -14,6 +15,7 @@ const TemplateOtp = () => {
     
     const [data, setdata] = useRecoilState(SignupData);
     const [input, setInput] = useState('');
+    const [loading,setloading] = useState<Boolean>(false)
     const Router = useRouter();
 
 
@@ -21,7 +23,8 @@ const TemplateOtp = () => {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         const otp = data.otp;  
- 
+
+        setloading(true)
         if(otp===input){   
             try { 
                 const response = await axios.post(`/api/signup`,{ 
@@ -55,17 +58,22 @@ const TemplateOtp = () => {
                     ...prevData,
                     otp: ''   
                 }));
+                setloading(false)
                 toast.error("Database is Currently Down")
                 console.error("Database Error: ", e);
             }
         } else {
+            setloading(false)
             toast.error("Invalid OTP, try again")
         }  
     } 
  
 
 
-    return <div className="w-full md:w-[600px] flex flex-col items-center gap-10 shadow-[10px_-5px_50px_-5px]  shadow-blue-200 p-6 rounded-xl">
+    return <>
+        {loading? <div>
+            <Loading/>
+        </div>:<div className="w-full md:w-[600px] flex flex-col items-center gap-10 shadow-[10px_-5px_50px_-5px]  shadow-blue-200 p-6 rounded-xl">
         <div className="flex flex-col items-center justify-center gap-2">
             <h2 className="text-xl lg:text-4xl text-[#9C49CF]">Verification Code</h2>
             <p className="text-md lg:text-lg text-richblack-200 ">we have sent the code verification to your email</p>
@@ -99,7 +107,8 @@ const TemplateOtp = () => {
                 Submit
             </PlainButton>
         </form>
-    </div>
+    </div>}
+    </>
 }
 
 export default TemplateOtp
