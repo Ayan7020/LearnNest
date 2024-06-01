@@ -3,25 +3,25 @@ export const UserSideBar: UserSideBarItem[] =  [
     {
     id: 1,
     name: "My Profile",
-    path: "/myprofile",
+    path: "/dash/myprofile",
     icon: "User",
     },
     {
         id: 2,
         name: "Dashboard",
-        path: "/dashboard",
+        path: "/dash/dashboard",
         icon: "LayoutDashboard"
     },
     {
         id: 3,
         name: "My Courses",
-        path: "/mycourses",
+        path: "/dash/mycourses",
         icon: "Monitor"
     },
     {
         id: 4,
         name: "Add Courses",
-        path: "/addcourses",
+        path: "/dash/addcourses",
         icon: "Plus"
     }
 ]

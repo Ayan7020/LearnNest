@@ -10,11 +10,11 @@ const Sendotp = () => {
     const [data, setdata] = useRecoilState(SignupData);
 
     if(data.email === ''){
-        Router.push('/signup')
+        Router.push('/auth/signup')
     }
     return <div className="absolute top-[100px] sm:top-[35%] "> 
-        <TemplateOtp/>
+        {data.email && <TemplateOtp/>}
     </div>
-}
+}   
 
 export default Sendotp

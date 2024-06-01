@@ -53,13 +53,13 @@ const Sidebar = ({onClick,State}:{
   const [shouldRender, setShouldRender] = useState(true);
 
   const handleSignOut = async () => {
-    await signOut({ redirect: false }); // Prevents automatic redirection
-    Router.push('/login'); // Manually redirect to the desired page
+    await signOut({ redirect: false }); 
+    Router.push('/auth/login'); 
   };
 
   return (
     <motion.div
-      className=" fixed bg-white dark:bg-black w-[50%] h-[100%] dark:text-white  flex flex-col gap-4 pt-20 top-0 z-10"
+      className=" fixed bg-richblack-25 border-r-4 border-pure-greys-300 dark:bg-richblack-900 w-[50%] h-[100%] dark:text-white  flex flex-col gap-4 pt-20 top-0 z-10"
       initial={isOpen? "closed":"open"}
       animate={isOpen ? "open" : "closed"}
       variants={variants}
@@ -82,8 +82,8 @@ const Sidebar = ({onClick,State}:{
         ))}
       </ul>
       <div className="flex flex-col gap-2 pt-4 border-t-2 border-black dark:border-white  items-center">
-        {token === null && <Link href={'/login'} className='w-full flex flex-col items-center'> 
-        <Button className="bg-transparent border border-white text-black dark:text-white rounded-[15px] px-6 py-3 hover:bg-transparent ring-1 dark:hover:text-white  transition-colors duration-300 ease-in-out focus:ring-2 w-[70%] ">
+        {token === null && <Link href={'/auth/login'} className='w-full flex flex-col items-center'> 
+        <Button onClick={onClick} className="bg-transparent border border-white text-black dark:text-white rounded-[15px] px-6 py-3 hover:bg-transparent ring-1 dark:hover:text-white  transition-colors duration-300 ease-in-out focus:ring-2 w-[70%] ">
           Login
         </Button>
         </Link>}
@@ -93,7 +93,7 @@ const Sidebar = ({onClick,State}:{
         </Button>
         </Link>}
         {token && (
-         <Link href={'/myprofile'} className='w-full  flex flex-col items-center'>
+         <Link href={'/dash/myprofile'} className='w-full  flex flex-col items-center'>
          <CustomButton  onClick={onClick} width_Button='full' active={true}>
            Dashboard
          </CustomButton> 
@@ -101,7 +101,7 @@ const Sidebar = ({onClick,State}:{
         {token && ( 
          <CustomButton  onClick={handleSignOut} width_Button='full' active={false}>
            Signout
-         </CustomButton>    )}
+         </CustomButton>)}
       </div>
     </motion.div>
   );
