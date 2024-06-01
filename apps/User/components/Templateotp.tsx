@@ -41,14 +41,14 @@ const TemplateOtp = () => {
                     }));
                     toast.success("Signup successfull");
 
-                    Router.push("/login")
+                    Router.push("/auth/login")
                   }  else {
                     setdata(prevData => ({
                         ...prevData,
                         otp: ''   
                     }));
                     toast.error(`${response.data.message}`);
-                    Router.push("/signup")
+                    Router.push("/auth/signup")
                   }
             } catch (e) {
                 setdata(prevData => ({
