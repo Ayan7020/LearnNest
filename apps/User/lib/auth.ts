@@ -68,7 +68,7 @@ export const authOptions = {
         async jwt({ token }: any) {
             return token;
           },
-        async session({ token, session,user }: any) { 
+        async session({ token, session }: any) { 
             const userData = await FetchUserInfo(session.user.email);
             session.user.id = token.sub;    
             session.user.AccountType = userData?.AccountType || '';
@@ -110,9 +110,9 @@ export const authOptions = {
         },
         async redirect({ url, baseUrl  }: any) { 
             if (url === '/api/auth/signout') {
-                return `${baseUrl}/`;
+                return `${baseUrl}/signup`;
             }
-            return `${baseUrl}/Authtype`;
+            return `${baseUrl}/auth/Authtype`;
         },
     } 
 };

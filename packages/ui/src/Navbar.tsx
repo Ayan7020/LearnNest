@@ -45,8 +45,8 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
   const router = usePathname();
 
   const handleSignOut = async () => {
-    await signOut({ redirect: false }); // Prevents automatic redirection
-    Router.push('/login'); // Manually redirect to the desired page
+    await signOut({ redirect: false });  
+    Router.push('/auth/login');  
   };
 
   const token = session.data; 
@@ -82,12 +82,12 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
           </nav>
           <div className="hidden md:flex gap-3  items-center">
             {token === null && (
-              <Link  href={"/login"} >
+              <Link  href={"/auth/login"} >
                 <Button className="bg-transparent h-12 text-black dark:text-white rounded-lg hover:bg-transparent  hover:ring-2 focus:ring-2 ">Login</Button> 
               </Link>
             )}
             {token === null && (
-              <Link href={"/signup"}>
+              <Link href={"/auth/signup"}>
               <Button className="bg-[#9C49CF] h-12 text-white rounded-lg hover:bg-[#671997] focus:ring-2">
                 Signup
               </Button>
@@ -105,13 +105,13 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                   <DropdownMenuLabel>My Profile</DropdownMenuLabel>
                   <DropdownMenuSeparator /> 
                   <DropdownMenuItem>
-                      <Link href="/myprofile" className="flex flex-row items-center justify-center gap-2">
+                      <Link href="/dash/myprofile" className="flex flex-row items-center justify-center gap-2">
                         <LayoutDashboard/>
                         My Dashboard
                       </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem> 
-                      <Link href="/myprofile" className="flex flex-row items-center justify-center gap-2">
+                      <Link href="/dash/myprofile" className="flex flex-row items-center justify-center gap-2">
                         <Settings/>
                         Settings
                       </Link>

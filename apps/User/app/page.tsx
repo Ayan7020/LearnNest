@@ -126,13 +126,13 @@ export default function Page(): JSX.Element {
             transition={{ duration: 1.0, ease: "easeOut" }}
             viewport={{once: true}}
             className="mt-8 lg:mt-0 flex flex-row gap-7">
-              <CTAButton active={true} linkto="/signup">
+              <CTAButton active={true} linkto="/auth/signup">
                   <div className="flex items-center gap-3">
                      Explore Full Catalog
                      <ArrowRight/>
                   </div>
               </CTAButton>
-              <CTAButton active={false} linkto="/signup">
+              <CTAButton active={false} linkto="/auth/signup">
                   <div>
                      Learn more  
                   </div>

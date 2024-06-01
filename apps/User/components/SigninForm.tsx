@@ -29,7 +29,7 @@ const SigninForm = () => {
         if(res?.ok){
             toast.success("Welcome to LearnNest");
             setloading(false);
-            router.push("/myprofile")
+            router.push("/dash/myprofile")
         } else {
             setloading(false);
             toast.error(`${res?.error}`);
