@@ -10,6 +10,8 @@ import { useSession } from "next-auth/react";
 import { signOut } from 'next-auth/react';
 import  {useRouter} from "next/navigation"
 import CustomButton from '@repo/ui/Button'
+import { DashboardIcon } from '@radix-ui/react-icons';
+import { GoSignOut } from 'react-icons/go';
 
 const subLinks = [
   {
@@ -93,15 +95,18 @@ const Sidebar = ({onClick,State}:{
         </Button>
         </Link>}
         {token && (
-         <Link href={'/dash/myprofile'} className='w-full  flex flex-col items-center'>
+         <Link href={'/dash/myprofile'} className='w-[80%]  flex flex-col items-center'>
          <CustomButton  onClick={onClick} width_Button='full' active={true}>
            Dashboard
+           <DashboardIcon/>
          </CustomButton> 
          </Link>)}
         {token && ( 
+          <div className='w-[80%]  flex flex-col items-center'>
          <CustomButton  onClick={handleSignOut} width_Button='full' active={false}>
            Signout
-         </CustomButton>)}
+           <GoSignOut/>
+         </CustomButton></div>)}
       </div>
     </motion.div>
   );

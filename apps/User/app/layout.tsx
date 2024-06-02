@@ -21,8 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-full">
-        <Providers> 
-        <Toaster />  
+      <Toaster />
+        <Providers>  
           <Navbar children={children} />  
         </Providers>
       </body>
