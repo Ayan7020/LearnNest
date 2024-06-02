@@ -1,7 +1,7 @@
 "use client"
-import { ThemeProvider } from "@repo/ui/Themeprovider";
-import { Session } from "inspector";
+import { ThemeProvider } from "@repo/ui/Themeprovider"; 
 import { SessionProvider } from "next-auth/react";
+import { Toaster } from "react-hot-toast";
 import { RecoilRoot } from "recoil";
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -10,10 +10,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
-    >
-      <SessionProvider>
-      <RecoilRoot>
-      {children}
+    > 
+      <SessionProvider> 
+      <RecoilRoot> 
+        {children}
       </RecoilRoot>
       </SessionProvider>
     </ThemeProvider>

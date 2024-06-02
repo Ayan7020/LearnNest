@@ -118,7 +118,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
                   </DropdownMenuItem>
                   <DropdownMenuSeparator /> 
                   <DropdownMenuItem className="flex items-center justify-center">
-                       <CustomButton active={true} width_Button='full' onClick={handleSignOut}>
+                       <CustomButton active={true} width_Button='fit' onClick={handleSignOut}>
                           LogOut
                        </CustomButton>
                   </DropdownMenuItem>
