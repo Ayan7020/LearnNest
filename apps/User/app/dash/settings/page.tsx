@@ -40,7 +40,7 @@ const Page = () => {
                     </div> 
                 </div> 
                 <div className="w-full rounded-md border-2 bg-richblack-50 dark:border-[1px] border-richblack-700 dark:bg-richblack-800 p-4 md:p-8 lg:px-12">
-                      {/* <PersonalDetails/>  */}
+                      <PersonalDetails/> 
                 </div>
             </div>
         </motion.div>

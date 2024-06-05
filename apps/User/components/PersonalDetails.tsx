@@ -98,8 +98,7 @@ const PersonalDetails = () => {
         setIsOpen(false);
     };
 
-    const HandleCancelButton = () => {
-        // Implement cancel functionality if needed
+    const HandleCancelButton = () => { 
     };
 
     return (
