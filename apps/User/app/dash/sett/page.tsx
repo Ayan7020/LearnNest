@@ -1,11 +1,9 @@
 "use client";
-
-import PlainButton from "@repo/ui/Button";
+ 
 import SmallButton from "@repo/ui/SmallButton";
 import { Edit2Icon, UploadCloud } from "lucide-react";
 import { useSession } from "next-auth/react";
-import { motion } from "framer-motion"
-import toast from "react-hot-toast";
+import { motion } from "framer-motion" 
 import PersonalDetails from "../../../components/PersonalDetails";
 
 const Page = () => {
@@ -42,7 +40,7 @@ const Page = () => {
                     </div> 
                 </div> 
                 <div className="w-full rounded-md border-2 bg-richblack-50 dark:border-[1px] border-richblack-700 dark:bg-richblack-800 p-4 md:p-8 lg:px-12">
-                      <PersonalDetails/> 
+                      {/* <PersonalDetails/>  */}
                 </div>
             </div>
         </motion.div>
