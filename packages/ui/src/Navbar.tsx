@@ -147,7 +147,7 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
       <div className="relative block md:hidden mt-20">
         {action && <Sidebar onClick={() => { setToggle(!toggle); }} State={toggle} />} 
       </div> 
-      <div className="pt-5">
+      <div className="pt-5 md:pt-20">
         {children}
       </div>
     </div>
