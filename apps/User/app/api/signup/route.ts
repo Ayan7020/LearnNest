@@ -45,6 +45,7 @@ const  signup = async (req: NextRequest): Promise<NextResponse> => {
         } 
         else {
             const HashedPassword = await bcrypt.hash(data.password,10) 
+            const date = new Date()
             await db.user.create({
                 data: {
                     Firstname: data.FirstName,
@@ -53,9 +54,17 @@ const  signup = async (req: NextRequest): Promise<NextResponse> => {
                     password: HashedPassword,
                     Authtype: data.Authtype,
                     AccountType: data.AccountType, 
-                    Authenticated: true
+                    Authenticated: true,
+                    additionalDetails: {
+                        create: {
+                            Gender: null,  
+                            contactNumber: null,
+                            DateofBirth: null
+                        }
+                    }
                 }
-            });
+            }); 
+            
             return NextResponse.json({ 
                 success: true,
                 message: "User registered successfully",

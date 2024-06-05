@@ -23,8 +23,10 @@ const TemplateOtp = () => {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         const otp = data.otp;  
-
-        setloading(true)
+        toast.loading("loading",{
+            id: 'Loadingotp'
+        })
+        setloading(true) 
         if(otp===input){   
             try { 
                 const response = await axios.post(`/api/signup`,{ 
@@ -42,7 +44,9 @@ const TemplateOtp = () => {
                         ...prevData,
                         otp: ''   
                     }));
-                    toast.success("Signup successfull");
+                    toast.success("Signup successfull",{
+                        id: 'Loadingotp'
+                    });
 
                     Router.push("/auth/login")
                   }  else {
@@ -50,7 +54,9 @@ const TemplateOtp = () => {
                         ...prevData,
                         otp: ''   
                     }));
-                    toast.error(`${response.data.message}`);
+                    toast.error(`Error Something went's wrong :- ${response.data.message}`,{
+                        id: 'Loadingotp'
+                    });
                     Router.push("/auth/signup")
                   }
             } catch (e) {
@@ -59,12 +65,16 @@ const TemplateOtp = () => {
                     otp: ''   
                 }));
                 setloading(false)
-                toast.error("Database is Currently Down")
+                toast.error("Database is Currently Down",{
+                    id: 'Loadingotp'
+                })
                 console.error("Database Error: ", e);
             }
         } else {
             setloading(false)
-            toast.error("Invalid OTP, try again")
+            toast.error("Invalid OTP, try again",{
+                id: 'Loadingotp'
+            })
         }  
     } 
  

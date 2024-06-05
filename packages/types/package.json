@@ -14,6 +14,8 @@
     "./ButtonProps": "./src/Button.ts",
     "./SignupValid": "./src/Signup.ts",
     "./InputProps": "./src/Input.ts",
-    "./Usersidebar": "./src/Usersidebar.ts"
+    "./Usersidebar": "./src/Usersidebar.ts",
+    "./TokenType": "./src/Token.ts",
+    "./Next-auth-types": "./src/next-auth.d.ts"
   }
 }

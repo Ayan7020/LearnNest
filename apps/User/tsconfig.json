@@ -16,4 +16,4 @@
     "app/**/*.d.ts"
 , "../../packages/Email/helpers/sendVerificationEmail.ts", "../../packages/Email/resend.ts"  ],
   "exclude": ["node_modules"]
-}
+} 

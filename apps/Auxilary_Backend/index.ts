@@ -1,8 +1,8 @@
 import express from "express";
-import axios from "axios";
-import cron from "node-cron";   
+import db from "@repo/db/clients"  
 import dotenv from  "dotenv"; 
 import cors from "cors";
+import ProfileRoutes from "./routes/Profile";
 
 const app = express();
 
@@ -14,24 +14,10 @@ app.use(express.json())
 app.use( cors({
     origin: "*",
     credentials: true
-}))
+}))  
 
+app.use("/api/v1/profile", ProfileRoutes)
 
-app.get('/ping',(req,res) => {
-    res.send('Server is Alive')
-})
-
-const PingURL = process.env.PINGURL || ""
-
-// Research -----> 
-// cron.schedule('*/15 * * * *',async () => {
-//     try {
-//         const response = await axios.get(PingURL);
-//         console.log('Ping successful:', response.data);
-//     } catch (error) {
-//         console.error('Error pinging the server:', error);
-//     }
-// })
 app.get("/", (req, res) => {    
     return res.json({   
         Success: true,

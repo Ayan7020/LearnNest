@@ -14,7 +14,7 @@ const SidebarUser = () =>{
         initial={{opacity:0,x:-100}}
         animate={{opacity:1,x:0}}
         transition={{ease:"backIn",duration:0.5}}
-        className="border-r-4 border-richblack-100  w-[13%] hidden xl:block h-full"> 
+        className="border-r-4 fixed  border-richblack-100  w-[13%] hidden xl:block h-full"> 
             <ul className="mt-20  w-full flex flex-col gap-4">
                 {UserSideBar.map((element: UserSideBarItem,index):any => {
                     return (

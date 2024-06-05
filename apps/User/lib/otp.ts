@@ -1,5 +1,5 @@
 const generateOtp = (length: number) => {
-    const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const characters = '0123456789ABCDEFGHJKMNOPQRSTUVWXYabcdefghjkmnopqrstuvwxy';
     let otp = '';
     for (let i = 0; i < length; i++) {
         otp += characters[Math.floor(Math.random() * characters.length)];

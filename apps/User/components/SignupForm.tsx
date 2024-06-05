@@ -8,8 +8,7 @@ import { useRouter } from "next/navigation";
 import { SignupLoading } from "@repo/store/Loading";
 import { useRecoilState } from "recoil";
 import { toast } from "react-hot-toast"  
-import axios from "axios";
-import otpGenerator  from "otp-generator"
+import axios from "axios"; 
 import { SignupData } from "@repo/store/Auth";  
 import otpGenerate from "../lib/otp";
  
