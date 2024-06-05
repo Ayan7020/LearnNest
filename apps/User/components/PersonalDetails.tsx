@@ -1,12 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import dynamic from 'next/dynamic';
 import { useSession } from "next-auth/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRecoilState } from "recoil";
 import toast from "react-hot-toast";
 import { format } from 'date-fns'; 
- 
+import { useRouter } from 'next/navigation';
+
 import TextInput from "@repo/ui/TextInput";
 import { PersonaldetailsSchema, PersonaldetailsValue } from "@repo/common/personalschemas"; 
 import { PersonalDetailsAtoms } from "@repo/store/PersonalAtoms";
@@ -15,10 +17,11 @@ import Smallbutton from "@repo/ui/SmallButton";
 
 const PersonalDetails = () => {  
     const { data: session, update } = useSession(); 
+    const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
     const [value, setValue] = useRecoilState(PersonalDetailsAtoms);
     const [selectedOption, setSelectedOption] = useState(value.Gender);
-    const dateofBirth = session?.user.AdditionalDetails?.DateofBirth || '' 
+    const dateofBirth = session?.user.AdditionalDetails?.DateofBirth || '';
 
     const options = ['Male', 'Female']; 
     
@@ -37,7 +40,6 @@ const PersonalDetails = () => {
             Gender: additionalDetails.Gender || prevValues.Gender,
             ContactNumber: additionalDetails.contactNumber
         })); 
- 
     }, [session, setValue]);
 
     const { register, handleSubmit, setValue: setFormValue, formState: { errors } } = useForm<PersonaldetailsValue>({
@@ -45,8 +47,7 @@ const PersonalDetails = () => {
         defaultValues: value,
     });
 
-    const onSubmit: SubmitHandler<PersonaldetailsValue> = async (data, e) => {
-        e?.preventDefault();    
+    const onSubmit: SubmitHandler<PersonaldetailsValue> = async (data) => {
         toast.loading("Loading", { id: 'Updating_Profile' }); 
 
         try {
@@ -76,7 +77,7 @@ const PersonalDetails = () => {
                     }
                 });   
                 toast.success("Profile Updated", { id: 'Updating_Profile' });
-                window.location.reload();
+                router.push('/dash/settings'); // Navigate to the settings page
             } else {
                 toast.error("Something went wrong", { id: 'Updating_Profile' });
             }
@@ -99,6 +100,7 @@ const PersonalDetails = () => {
     };
 
     const HandleCancelButton = () => { 
+        router.push('/')
     };
 
     return (
@@ -190,4 +192,4 @@ const PersonalDetails = () => {
     );
 };
 
-export default PersonalDetails;
+export default dynamic(() => Promise.resolve(PersonalDetails), { ssr: false });
