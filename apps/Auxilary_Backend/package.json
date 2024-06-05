@@ -22,6 +22,7 @@
     "esbuild": "^0.20.2",
     "eslint-config": "*",
     "express": "^4.19.1",
+    "jsonwebtoken": "^9.0.2",
     "node-cron": "^3.0.3",
     "typescript-config": "*",
     "vercel": "^32.3.0"
