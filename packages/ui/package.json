@@ -16,6 +16,7 @@
     "./ToggleTheme": "./src/Toggle/ToggleTheme.tsx",
     "./GradCard": "./src/temp.tsx",
     "./Navbar": "./src/Navbar.tsx",
+    "./SmallButton": "./src/Button/SmallButton.tsx",
     "./Lamp": "./src/Acertinty/lamp.tsx",
     "./TypeWritterEffect": "./src/Acertinty/typewriter-effect.tsx",
     "./AnimatedButton": "./src/Button/AnimatedButton.tsx",
@@ -23,8 +24,8 @@
     "./BackgroundGradient": "./src/Acertinty/background-gradient.tsx",
     "./TextInput": "./src/Input/TextInput.tsx",
     "./Sidebaruser": "./src/Sidebaruser.tsx",
-    "./BottomBar": "./src/Bottom.tsx",
-    "./Loader": "./src/Loader.tsx"
+    "./BottomBar": "./src/Bottom.tsx", 
+    "./Loader": "./src/Loader.tsx" 
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

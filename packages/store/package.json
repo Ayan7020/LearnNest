@@ -15,6 +15,7 @@
   },
   "exports": {
     "./Loading": "./src/atoms/loading.ts",
-    "./Auth": "./src/atoms/Auth.ts" 
+    "./Auth": "./src/atoms/Auth.ts",
+    "./PersonalAtoms": "./src/atoms/personaldetails.ts" 
   }
 } 

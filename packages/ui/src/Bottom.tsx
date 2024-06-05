@@ -4,7 +4,7 @@ import Bottombarlinks from "./Bottombarlinks";
 
 const Bottom = () => {
     return (
-        <div className="w-full dark:bg-[#000000]  shadow-2xl shadow-black fixed bottom-0 block xl:hidden">
+        <div className="w-full  bg-white dark:bg-[#000000]  shadow-2xl shadow-black fixed bottom-0 block xl:hidden">
             <ul className="flex justify-around">
                 {UserSideBar.map((element: UserSideBarItem, index): any => {
                     return (

@@ -61,7 +61,7 @@ const Sidebar = ({onClick,State}:{
 
   return (
     <motion.div
-      className=" fixed bg-richblack-25 border-r-4 border-pure-greys-300 dark:bg-richblack-900 w-[50%] h-[100%] dark:text-white  flex flex-col gap-4 pt-20 top-0 z-10"
+      className=" fixed bg-richblack-25 border-r-4 border-pure-greys-300 dark:bg-richblack-900 w-[50%] h-[100%] dark:text-white  flex flex-col gap-4 pt-20 top-0 z-50"
       initial={isOpen? "closed":"open"}
       animate={isOpen ? "open" : "closed"}
       variants={variants}

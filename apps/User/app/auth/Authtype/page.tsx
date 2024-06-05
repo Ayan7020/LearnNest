@@ -75,7 +75,7 @@ const Page = () => {
             <div className="flex flex-col items-center  w-full">
               <PlainButton
                 active={true}
-                width_Button="full"
+                width_Button="fit"
                 onClick={HandleSubmit}
               >
                 Submit

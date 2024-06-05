@@ -2,8 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import db from "@repo/db/clients";
 import bcrypt from "bcrypt";     
-import { Session, getServerSession } from "next-auth";
-import type { Adapter } from "next-auth/adapters"; 
+import { Session } from "next-auth"; 
 
 
 interface CustomSession extends Session {
@@ -16,6 +15,9 @@ const FetchUserInfo = async (email: string) => {
     const user = await db.user.findFirst({
         where: {
             email: email
+        },
+        include:{
+            additionalDetails: true
         }
     });
     return user;
@@ -51,7 +53,7 @@ export const authOptions = {
                     else { 
                         return {  
                             id: ExistingUser.id.toString(),  
-                            name: ExistingUser.Firstname, 
+                            name: ExistingUser.Firstname + ' ' + ExistingUser.Lastname, 
                             email: ExistingUser.email,
                             AccountType: ExistingUser.AccountType, 
                             Authenticated: ExistingUser.Authenticated,
@@ -65,18 +67,21 @@ export const authOptions = {
     secret: process.env.JWT_SECRET || "secret",
 
     callbacks: {
-        async jwt({ token }: any) {
+        async jwt({ token }: any) { 
             return token;
           },
-        async session({ token, session }: any) { 
+        async session({ token, session }: any) {  
             const userData = await FetchUserInfo(session.user.email);
-            session.user.id = token.sub;    
+            session.user.id = userData?.id || token.sub;   
+            session.user.FirstName = userData?.Firstname || '';
+            session.user.LastName = userData?.Lastname || ''; 
             session.user.AccountType = userData?.AccountType || '';
             session.user.Authenticated = userData?.Authenticated || false;
             session.user.Authtype = userData?.Authtype || '';
+            session.user.AdditionalDetails = userData?.additionalDetails
             return session; 
         }, 
-        async signIn({account,profile,user}: any){ 
+        async signIn({account,profile,user}: any){  
             if(account.provider === "google"){    
 
                 const ExistingUser = await db.user.findFirst({
@@ -90,10 +95,18 @@ export const authOptions = {
                     try {
                         const response = await db.user.create({
                             data: {     
-                                Firstname: profile.name,
+                                Firstname: profile.name.split(' ')[0],
+                                Lastname: profile.name.split(' ')[1],
                                 email: profile.email,
                                 Authtype: "GOOGLE",
-                                AccountType: "Student"
+                                AccountType: "Student",
+                                additionalDetails: {
+                                    create: {
+                                        Gender: null,  
+                                        contactNumber: null,
+                                        DateofBirth: null
+                                    }
+                                }
                             }   
                         });
                         user.Authenticated = false
@@ -115,4 +128,4 @@ export const authOptions = {
             return `${baseUrl}/auth/Authtype`;
         },
     } 
-};
+}; 

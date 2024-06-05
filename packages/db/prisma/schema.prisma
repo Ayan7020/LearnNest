@@ -24,16 +24,34 @@ enum Accounts {
   Admin
 }
 
+enum Gender {
+  Male
+  Female
+  null
+}
+
 model User {
-  id            Int          @id @default(autoincrement())
-  Firstname     String
-  Lastname      String?
-  email         String       @unique
-  password      String?
-  createdAt     DateTime     @default(now())
-  Authtype      AuthProvider
-  AccountType   Accounts     @default(Student)
-  Authenticated Boolean      @default(false)
+  id                Int          @id @default(autoincrement())
+  Firstname         String
+  Lastname          String?
+  email             String       @unique
+  password          String?
+  createdAt         DateTime     @default(now())
+  Authtype          AuthProvider
+  AccountType       Accounts     @default(Student)
+  Authenticated     Boolean      @default(false)
+  Image             String?
+  additionalDetails Profile?     @relation(fields: [profileId], references: [id])
+  profileId         Int?         @unique
+}
+
+model Profile {
+  id            Int       @id @default(autoincrement())
+  Gender        Gender?
+  DateofBirth   String? @map("date_of_birth")
+  about         String?
+  contactNumber String?
+  user          User?
 }
 
 model admin {
