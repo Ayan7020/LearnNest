@@ -21,3 +21,6 @@ export const PersonaldetailsSchema = z.object({
 });
 
 export type PersonaldetailsValue = z.infer<typeof PersonaldetailsSchema>;
+
+
+
