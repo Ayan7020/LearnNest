@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { format } from 'date-fns'; 
  
 import TextInput from "@repo/ui/TextInput";
-import { PersonaldetailsSchema, PersonaldetailsValue } from "@repo/common/personalschemas"; 
+import { PersonaldetailsSchema, PersonaldetailsValue } from "@repo/common/personaldetail"; 
 import { PersonalDetailsAtoms } from "@repo/store/PersonalAtoms";
 import api from "../lib/axiosapi";
 import Smallbutton from "@repo/ui/SmallButton"; 
@@ -28,7 +28,7 @@ const PersonalDetails = () => {
         const { user } = session;
         const additionalDetails = user?.AdditionalDetails || {}; 
 
-        setValue(prevValues => ({
+        setValue((prevValues: any) => ({
             ...prevValues,
             About: additionalDetails.about || prevValues.About,
             DateofBirth: additionalDetails.DateofBirth || prevValues.DateofBirth,

@@ -15,6 +15,6 @@
   "exports": {
     "./signinschemas": "./schema/signinschema.ts",
     "./signupschemas": "./schema/signupschema.ts",
-    "./personalschemas": "./schema/personaldetails.ts" 
+    "./personaldetail": "./schema/personaldetails.ts" 
   }   
 }
