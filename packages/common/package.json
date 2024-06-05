@@ -1,6 +1,6 @@
 {
   "name": "@repo/common",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,6 @@
   "exports": {
     "./signinschemas": "./schema/signinschema.ts",
     "./signupschemas": "./schema/signupschema.ts",
-    "./personaldetail": "./schema/personaldetails.ts" 
+    "./personalschemas": "./schema/personalschema.ts" 
   }   
 }

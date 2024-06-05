@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { format } from 'date-fns'; 
  
 import TextInput from "@repo/ui/TextInput";
-import { PersonaldetailsSchema, PersonaldetailsValue } from "@repo/common/personaldetail"; 
+import { PersonaldetailsSchema, PersonaldetailsValue } from "@repo/common/personalschemas"; 
 import { PersonalDetailsAtoms } from "@repo/store/PersonalAtoms";
 import api from "../lib/axiosapi";
 import Smallbutton from "@repo/ui/SmallButton"; 
