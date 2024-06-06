@@ -6,4 +6,4 @@ const  signup = async (req: NextRequest)  => {
     return NextResponse.json(token) 
 }  
 
-export { signup as POST, signup as GET}
+export { signup as POST, signup as GET} 

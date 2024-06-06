@@ -2,7 +2,7 @@ import express from "express";
 import db from "@repo/db/clients"  
 import dotenv from  "dotenv"; 
 import cors from "cors";
-import ProfileRoutes from "./routes/Profile";
+import ProfileRoutes from "./routes/Profile"; 
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use( cors({
     credentials: true
 }))  
 
-app.use("/api/v1/profile", ProfileRoutes)
+app.use("/api/v1/profile", ProfileRoutes) 
 
 app.get("/", (req, res) => {    
     return res.json({   

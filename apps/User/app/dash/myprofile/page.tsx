@@ -49,9 +49,9 @@ const Page = () => {
                 </div>
                 {/* {About} */}
                 <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 rounded-md border-2 bg-richblack-50 dark:border-[1px] border-richblack-700 dark:bg-richblack-800 p-4 md:p-8 lg:px-12">
-                    <div className="space-y-6">
-                        <p className="text-md md:text-lg font-semibold text-black dark:text-richblack-5">About</p>
-                        <p className="text-md text-black dark:text-richblack-300">
+                    <div className="space-y-6 w-full">
+                        <p className="text-md md:text-lg font-semibold text-black dark:text-richblack-5 text-center md:text-start">About</p>
+                        <p className="text-md text-black dark:text-richblack-300 text-center md:text-start">
                         {session?.user.AdditionalDetails.about? session.user.AdditionalDetails.about:'Write Something About Yourself'} 
                         </p>
                     </div>

@@ -100,14 +100,14 @@ const PersonalDetails = () => {
     };
 
     const HandleCancelButton = () => { 
-        router.push('/')
+        // router.push('/')
     };
 
     return (
         <div className="space-y-4 p-4">
             <div className="space-y-4 w-full">
                 <p className="text-xl font-semibold">Profile Information</p>
-                <div className="w-full border-2 border-richblack-50 bg-black"></div>
+                <div className="w-full border-2 border-richblack-600 dark:border-richblack-50 bg-black"></div>
             </div>
             <div>
                 <form className="flex flex-col items-center mb-20 md:mb-0" onSubmit={handleSubmit(onSubmit)}>
@@ -149,7 +149,7 @@ const PersonalDetails = () => {
                                     Gender
                                 </label>
                                 <div 
-                                    className="w-full p-[12px] dark:text-richblack-5 rounded-[0.5rem] text-black border-2 dark:bg-richblack-800 font-medium cursor-pointer" 
+                                    className="w-full p-[12px] bg-white border-black dark:text-richblack-5 rounded-[0.5rem] text-black border-2 dark:bg-richblack-800 font-medium cursor-pointer" 
                                     onClick={() => setIsOpen(!isOpen)}
                                     style={{ boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)" }}
                                 >
@@ -161,7 +161,7 @@ const PersonalDetails = () => {
                                             <div 
                                                 key={option} 
                                                 onClick={() => handleClicked(option)} 
-                                                className="p-[12px] cursor-pointer hover:bg-gray-200 dark:hover:bg-richblack-700"
+                                                className="p-[12px] cursor-pointer hover:bg-richblack-100  dark:hover:bg-richblack-700"
                                             >
                                                 {option}
                                             </div>
