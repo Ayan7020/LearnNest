@@ -4,6 +4,8 @@ import { UserSideBarItem } from "@repo/types/Usersidebar";
 import Sidebarlinks from "./SidebarLinks"; 
 import { usePathname } from "next/navigation"; 
 import { motion } from "framer-motion"
+import PlainButton from "./Button/NormalButton";
+import { LogOutIcon } from "lucide-react";
 
 
 const SidebarUser = () =>{ 
@@ -29,6 +31,10 @@ const SidebarUser = () =>{
             </div>
             <div className="mt-5  flex flex-col gap-4  w-full ">
             <Sidebarlinks links={'/dash/settings'} iconName={'Settings'} name={'Settings'} /> 
+            <PlainButton active={true} width_Button="fit">
+                <p className="text-lg">Log out</p>
+                <LogOutIcon/>
+            </PlainButton>
             </div> 
         </motion.div>
     ) 
