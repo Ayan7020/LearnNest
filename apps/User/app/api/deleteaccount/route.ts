@@ -40,4 +40,4 @@ const deleteAccount = async (req: NextApiRequest): Promise<NextResponse> => {
     }
 };
 
-export { deleteAccount as GET, deleteAccount as POST };
+export {deleteAccount as POST}
